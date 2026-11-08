@@ -41,7 +41,7 @@ input{width:100%;margin:0 0 10px;padding:15px 16px;border-radius:14px;border:1.5
 .res .tag{font:600 12px Orbitron,sans-serif;letter-spacing:.22em;color:var(--red2);margin:0 0 8px}.res h2{font-size:30px}.lead{margin:0 0 18px;color:var(--ink);opacity:.92}
 .mv{padding:13px 0;border-top:1px solid var(--line)}.mv b{display:block;color:var(--red2);font:600 12px Orbitron,sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:3px}
 .plan{margin:18px 0;padding:16px 18px;border-radius:16px;background:rgba(239,35,60,.10);border:1px solid rgba(239,35,60,.4)}.plan b{display:block;margin-bottom:4px}
-.res .btn{margin-top:10px}.disc{color:var(--mut);font-size:12px;margin-top:18px}
+.vsl{position:relative;aspect-ratio:16/9;margin:4px 0 20px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000}.vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.res .btn{margin-top:10px}.disc{color:var(--mut);font-size:12px;margin-top:18px}
 </style></head><body>
 <section id="hero"><div class="hc"><p class="kick">Meeste tervise kuu · <b>November</b></p><h1>Kõht alla. Jõud tagasi.</h1><p class="sub">Vasta mõnele küsimusele ja avasta, mis treening sobib Su kehatüübile. Saad esimese kuu trenni- ja toitumisplaani.</p><div class="cta"><button class="btn" id="start">ALUSTA · 2 MIN</button></div><p class="by"><b>Hendrik Oviir</b><br>Soome Fitnessi Akadeemia lõpetanu · Rahvusvaheline treeneri litsents · 17 aastat treeningkogemust</p></div></section>
 <main id="app"><div class="top"><button id="back" aria-label="Tagasi" hidden>←</button><div id="nodes"></div><span style="min-width:44px"></span></div><section class="q" id="q"></section><div id="foot"></div></main>
@@ -78,6 +78,7 @@ F1:{tag:"F1 · VORM · NÄHTAVAD KÕHULIHASED",h:"Sinu tüüp: rasv alla, lihas 
 C1:{tag:"C1 · CUT · DEFINEERITUD",h:"Sinu tüüp: kuiv ja defineeritud",lead:"Lihast on olemas. Nüüd on küsimus, kuidas rasv ära anda ilma lihast kaotamata.",
  mv:[["Toitumine","Mõõdukas defitsiit ja kõrge valk. Süsivesikud trenni ümber, et jõud ja taastumine püsiksid."],["Treening","3 korda nädalas rasked seeriad 6–12 kordusega. Trenni lõppu 5–10 minutit intervalle."],["Taastumine","Cutis on uni ja stress kõige olulisemad. Ilma taastumiseta rasv ei lähe ja jõud langeb."],["Aeg","Planeeri 8–12 nädalat. Siis tee paus ja hoia tulemust."]],
  plan:"JÕUD kava, definitsiooni rada: 5RM, kolm rasket treeningut nädalas ja lõppu 5–10 minutit intervalle."}};
+var VSL={"M1":"18995ca4f5224eb6828a891da24b9599","M2":"249ba90765604cbbb1efb0a2a3c097f7","F1":"8aad7f7dffe74f1bbaaf7c70876c9048","F2":"a88d0f18f602412bbd7a6d967cfd6e1c","C1":"69027784605545039f2d5aceed957bec"};
 var A={},i=0,path=[],done=false,q=$("q"),foot=$("foot"),back=$("back");
 function build(){var p=[Q.age,Q.body];if(A.Keha==="Mõõdukas ülekaal")p.push(Q.goal);p.push(Q.exp);if(A.Keha==="Suur ülekaal"||A.Keha==="Lihast on, rasv katab selle ära")p.push(Q.motiv);p.push(Q.contact);return p}
 function rings(){var n=$("nodes");n.innerHTML="";for(var k=0;k<path.length;k++){if(k){var b=el("b");if(k<=i)b.className="on";n.appendChild(b)}var c=el("i");c.className=k<i?"on":k===i?"now":"";n.appendChild(c)}}
@@ -104,6 +105,7 @@ function send(){var d={Nimi:A.Nimi,Email:A.Email,Telefon:A.Telefon,Allikas:"keha
  px("track","SubmitApplication");if(!RECEIVER_URL)return;try{fetch(RECEIVER_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)})}catch(e){}}
 function result(){done=true;i=path.length;rings();back.hidden=true;foot.innerHTML="";q.innerHTML="";q.className="q res";var o=OUT[outcome()],nm=(A.Nimi||"").split(" ")[0];
  q.appendChild(el("p","tag",o.tag));q.appendChild(el("h2","",(nm?nm+", ":"")+o.h));q.appendChild(el("p","lead",o.lead));
+ var vid=VSL[outcome()];if(vid){var w=el("div","vsl"),f=el("iframe");f.src="https://www.loom.com/embed/"+vid+"?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true";f.allow="autoplay; fullscreen; picture-in-picture";f.allowFullscreen=true;f.title="Video";w.appendChild(f);q.appendChild(w)}
  o.mv.forEach(function(m){var d=el("div","mv");d.appendChild(el("b","",m[0]));d.appendChild(el("span","",m[1]));q.appendChild(d)});
  var p=el("div","plan");p.appendChild(el("b","","Sinu 1. kuu: JÕUD 4-nädalane kava"));p.appendChild(el("span","",o.plan));q.appendChild(p);
  var tagCode=outcome(),msg="Tere Hendrik! Tegin vormi plaani testi"+(A.Nimi?" ("+A.Nimi+")":"")+".\nTüüp: "+o.tag+"\nVanus: "+(A.Vanus||"")+"\nKeha: "+(A.Keha||"")+(A.Siht?"\nEesmärk: "+A.Siht:"")+"\nKogemus: "+(A.Kogemus||"")+"\nTahan JÕUD 1. kuu kava ("+tagCode+" rada).";
