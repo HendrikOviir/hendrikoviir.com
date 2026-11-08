@@ -78,8 +78,8 @@ main{max-width:720px}
 .kick b{color:#88F9C0;font-weight:700}
 h1{font-size:clamp(23px,4.2vw,30px);line-height:1.2;font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
 .hint{color:var(--mut);font-size:15px;margin:2px 0 6px}
-.opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.opt{display:flex;align-items:center;gap:12px;width:auto;max-width:100%;min-height:54px;padding:13px 16px;border-radius:12px;border:1px solid rgba(238,236,248,.22);background:rgba(1,1,13,.4);font-weight:600;font-size:16px;line-height:1.3;transition:border-color .15s,background .15s,transform .1s ease-out}
+.opts{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin-top:20px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;max-width:100%;text-align:left;justify-content:flex-start;box-sizing:border-box;min-height:54px;padding:13px 16px;border-radius:12px;border:1px solid rgba(238,236,248,.22);background:rgba(1,1,13,.4);font-weight:600;font-size:16px;line-height:1.3;transition:border-color .15s,background .15s,transform .1s ease-out}
 .opt::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(238,236,248,.55);transition:all .2s}
 .opt.multi::before{border-radius:5px}
 .opt.long,.opt.card{grid-column:1/-1}
