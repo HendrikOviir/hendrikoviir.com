@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="et"><head>
+<!-- Meta Pixel (same dataset as Kompass/AI). Silent on localhost. Events: KehaQuizStart, KehaQuizStep, SubmitApplication -->
+<script>
+(function(){var h=location.hostname;
+if(h==="localhost"||h==="127.0.0.1"||/\.local$/.test(h)||/^192\.168\./.test(h)){window.fbq=function(){}}
+else{!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','587447591933718')}
+window.px=function(){try{fbq.apply(null,arguments)}catch(e){}};px('track','PageView')})();
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#111217">
+<title>Sinu vormi plaan · 2 minutit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#111217;--ink:#DFE5EB;--mut:#aab3bd;--red:#EF233C;--red2:#FF4D63;--line:rgba(223,229,235,.18)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 Manrope,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;background:#0b0c10 url(hero.jpg) center 12%/cover no-repeat}
+#hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,18,23,.15) 0%,rgba(17,18,23,.55) 45%,#111217 92%)}
+.hc{position:relative;max-width:640px;padding:0 22px max(34px,env(safe-area-inset-bottom));margin:0 auto;width:100%}
+.kick{font:600 12px Orbitron,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--red2);margin:0 0 14px}
+h1{font:800 clamp(38px,9vw,64px)/1.02 Manrope,sans-serif;letter-spacing:-.02em;margin:0 0 14px}
+.sub{color:var(--ink);opacity:.92;font-size:18px;margin:0 0 26px;max-width:30em}
+.btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;width:100%;min-height:58px;padding:16px 28px;border-radius:99px;font-weight:800;font-size:17px;letter-spacing:.04em;color:#fff;background:linear-gradient(180deg,#F0384F,#D81B32);border:1.5px solid rgba(255,255,255,.18);text-decoration:none;transition:transform .1s}
+.btn:active{transform:scale(.98)}.btn.g{background:transparent;color:var(--ink);border-color:var(--line)}.btn:disabled{opacity:.4;cursor:default}
+.by{margin:16px 0 0;color:var(--mut);font-size:13px;letter-spacing:.06em}
+#app{display:none;max-width:640px;margin:0 auto;padding:22px 16px max(32px,env(safe-area-inset-bottom));min-height:100svh}
+.top{display:flex;align-items:center;min-height:44px}#back{all:unset;cursor:pointer;min-width:44px;min-height:44px;display:grid;place-items:center;font-size:22px}#back[hidden]{visibility:hidden;display:grid}
+#nodes{display:flex;align-items:center;flex:1;min-width:0;max-width:330px;margin:0 auto}
+#nodes i{display:block;flex:none;position:relative;width:19px;height:19px;border-radius:50%;border:2px solid rgba(223,229,235,.3);background:rgba(17,18,23,.6);transition:.4s}
+#nodes i:after{content:"";position:absolute;left:5.5px;top:1.5px;width:4px;height:8px;border:solid #111217;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .35s cubic-bezier(.3,1.6,.5,1) .1s}
+#nodes i.on{background:var(--ink);border-color:var(--ink);animation:pop .5s ease-out}#nodes i.on:after{transform:rotate(45deg) scale(1)}
+#nodes i.now{border-color:var(--red);box-shadow:0 0 14px rgba(239,35,60,.7);transform:scale(1.18)}#nodes i.now:before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--red)}
+#nodes b{display:block;flex:1;min-width:3px;height:2px;background:rgba(223,229,235,.18);position:relative;overflow:hidden}#nodes b:after{content:"";position:absolute;inset:0;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--ink),var(--red));transition:transform .55s}#nodes b.on:after{transform:scaleX(1)}
+@keyframes pop{0%{transform:scale(.7)}60%{transform:scale(1.28)}100%{transform:scale(1)}}
+.q{margin-top:18px;padding:24px 20px;border-radius:22px;background:rgba(24,25,32,.86);border:1px solid var(--line);box-shadow:0 0 40px rgba(239,35,60,.10)}
+.step{font:600 11px Orbitron,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}.step b{color:var(--red2)}
+.q h2{font:800 25px/1.2 Manrope,sans-serif;margin:0 0 18px}
+.opts{display:grid;gap:10px}.opt{all:unset;box-sizing:border-box;cursor:pointer;display:block;padding:14px 18px;border-radius:16px;border:1.5px solid var(--line);background:rgba(17,18,23,.6);transition:.15s}.opt:hover{border-color:rgba(239,35,60,.6)}.opt b{display:block;font-weight:700}.opt span{display:block;color:var(--mut);font-size:14px;margin-top:2px}.opt.on{border-color:var(--red);background:rgba(239,35,60,.12)}
+input{width:100%;margin:0 0 10px;padding:15px 16px;border-radius:14px;border:1.5px solid var(--line);background:rgba(17,18,23,.7);color:var(--ink);font:inherit}input.bad{border-color:var(--red)}input::placeholder{color:#7f8893}.hp{position:absolute;left:-9999px;opacity:0}
+.err{color:var(--red2);font-size:14px;min-height:1.2em;margin:0 0 6px}.fine{color:var(--mut);font-size:12.5px;margin:6px 0 0}
+#foot{margin-top:16px}
+.res .tag{font:600 12px Orbitron,sans-serif;letter-spacing:.22em;color:var(--red2);margin:0 0 8px}.res h2{font-size:30px}.lead{margin:0 0 18px;color:var(--ink);opacity:.92}
+.mv{padding:13px 0;border-top:1px solid var(--line)}.mv b{display:block;color:var(--red2);font:600 12px Orbitron,sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:3px}
+.plan{margin:18px 0;padding:16px 18px;border-radius:16px;background:rgba(239,35,60,.10);border:1px solid rgba(239,35,60,.4)}.plan b{display:block;margin-bottom:4px}
+.res .btn{margin-top:10px}.disc{color:var(--mut);font-size:12px;margin-top:18px}
+</style></head><body>
+<section id="hero"><div class="hc"><p class="kick">Meeste tervis · november</p><h1>Mis on Sinu vormi plaan?</h1><p class="sub">Paar küsimust, 2 minutit. Saad oma tüübi, esimese kuu treeningplaani ja toitumise põhireeglid.</p><button class="btn" id="start">ALUSTA · 2 MIN</button><p class="by">Hendrik Oviir · treener 17 aastat</p></div></section>
+<main id="app"><div class="top"><button id="back" aria-label="Tagasi" hidden>←</button><div id="nodes"></div><span style="min-width:44px"></span></div><section class="q" id="q"></section><div id="foot"></div></main>
+<script>
+(function(){
+var RECEIVER_URL="https://script.google.com/macros/s/AKfycbw5D-Vmuu6p7GuTzK2Da1_aQB_HC3YRmlif4WFjPngDvDw9AcxFDUwle_s9_FN0TtEo/exec", WA_NR="37255628934", GROUP="https://www.facebook.com/groups/ruuum";   // WA_NR = Hendrik's WhatsApp digits with 372…; empty = WhatsApp buttons hidden
+var $=function(x){return document.getElementById(x)},px=window.px||function(){};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+var Q={
+ age:{k:"Vanus",t:"Kui vana Sa oled?",o:["Alla 20","20–29","30–39","40–49","50–59","60+"]},
+ body:{k:"Keha",t:"Kuidas kirjeldaksid oma keha ja vormi praegu?",o:[
+  {v:"Kõhn",t:"Kõhn",d:"Sile kõht, peenikesed käed-jalad. Tahan rohkem lihast."},
+  {v:"Mõõdukas ülekaal",t:"Mõõdukas ülekaal",d:"Tahan 3–10 kg rasva alla ja paremat lihasdefinitsiooni."},
+  {v:"Suur ülekaal",t:"Suur ülekaal",d:"Vaja kaotada üle 10 kg rasva, et parandada tervist ja vormi."},
+  {v:"Lihast on, tahan rohkem",t:"Lihast on, tahan rohkem",d:"Proportsioonis ja jõulisemat keha."},
+  {v:"Lihast on, rasva vähem",t:"Lihast on, rasva vähem",d:"Tahan defineeritud lihaseid ja nähtavaid kõhulihaseid."}]},
+ goal:{k:"Siht",t:"Mis on Su peamine eesmärk?",o:[{v:"Rasv alla",t:"Rasv alla",d:"Parem tervis ja nähtavad kõhulihased."},{v:"Lihaste kasv",t:"Lihaste kasv",d:"Rohkem lihast ja jõudu."}]},
+ exp:{k:"Kogemus",t:"Kui kogenud oled treenimises?",o:[{v:"Algaja",t:"Algaja",d:"Olen mõne korra jõusaalis käinud või pole üldse treeninud."},{v:"Harrastaja",t:"Jõusaali harrastaja",d:"Tunnen põhiharjutusi, aga vajan kindlat plaani."},{v:"Kogenud",t:"Kogenud treenija",d:"Käin regulaarselt jõusaalis vähemalt 2–3 aastat."}]},
+ motiv:{k:"Motivatsioon",t:"Kui valmis oled panema tööd sisse?",o:[{v:"Väga",t:"Täis pealt",d:"Olen valmis pühenduma täielikult."},{v:"Keskmine",t:"Soovin midagi lihtsat",d:"Tahan lihtsamat ja soodsamat teed."}]},
+ contact:{k:"contact",t:"Kuhu saadan Sinu tulemuse?",contact:1}};
+var OUT={
+M1:{tag:"M1 · LIHASMASS · ALGAJA",h:"Sinu tüüp: lihaseehitaja algaja",lead:"Sul on kõige kiirem teekond: õiged baasharjutused, õige koormus ja piisav toit. Algaja keha reageerib treeningule kiiresti.",
+ mv:[["Treening","3 korda nädalas baasharjutused: kükk, surumine, tõmbed. Alusta koormusega, mis jätab 2–3 kordust varuks, ja lisa iga nädal veidi."],["Toitumine","Valku iga päev ligikaudu 1,6–2 g kehakaalu kilo kohta ja väike kalorite ülejääk. Söö päris toitu ja regulaarselt."],["Taastumine","7–9 tundi und ja üks täielik puhkepäev nädalas. Lihas kasvab puhates, mitte trennis."],["Järjepidevus","Püsi plaanis vähemalt 12 nädalat. Järjepidevus loeb rohkem kui täiuslik nädal."]],
+ plan:"JÕUD kava, lihasmassi rada: 1. nädalal 5RM testid ja õiged koormused, 2.–4. nädalal kolm treeningut nädalas (A, B, C) ja 10 000 sammu päevas."},
+M2:{tag:"M2 · LIHASMASS · EDASIJÕUDNUD",h:"Sinu tüüp: lihaseehitaja edasijõudnu",lead:"Sul on alus olemas. Nüüd teeb vahe täpsus: raskus, maht ja taastumine peavad kokku sobima.",
+ mv:[["Treening","3–4 treeningut nädalas, iga lihasgrupp kaks korda. Vähe harjutusi, aga rasked seeriad, 1–2 kordust varuks."],["Toitumine","Valku 1,6–2,2 g kilo kohta, väike ülejääk (umbes 5–10%). Jälgi kaalu 2–3 nädala trendi."],["Taastumine","7–9 tundi und, üks puhkepäev. Kui areng seisab, muuda ühte asja korraga: maht, harjutus või kalorid."],["Järjepidevus","Logi iga trenn. Mis ei ole kirjas, seda ei saa progresseerida."]],
+ plan:"JÕUD kava, lihasmassi rada: 1. nädalal 5RM testid, siis kolm treeningut nädalas (A, B, C) ja iga nädal veidi rohkem kordusi või kaalu."},
+F2:{tag:"F2 · RASV ALLA · ENERGIA",h:"Sinu tüüp: rasvakaotus ja energia",lead:"Sul on vaja tagasi kontrolli ja energiat. Mitte äärmuslikku dieeti, vaid lihtsat süsteemi, mis püsib.",
+ mv:[["Toitumine","Väike kaloridefitsiit (umbes 300–500 kcal päevas), valku igal söögikorral, rohkem päris toitu ja vähem töödeldut."],["Liikumine","Palju jalutamist (10 000 sammu päevas) ja 1–2 jõutreeningut nädalas, et lihas säiliks."],["Taastumine","Uni ja stress otsustavad, kas rasv läheb. Üks täielik puhkepäev nädalas."],["Järjepidevus","Kaal ei liigu sirgelt. Vaata 2–3 nädala trendi, mitte ühte hommikut."]],
+ plan:"JÕUD kava, rasvakaotuse rada: alustad kodustest treeningutest (2 nädalas, algaja → edasijõudnu). 5RM-iga alustad siis, kui rasva on 5–10 kg vähem (suure ülekaalu korral umbes 10 kg)."},
+F1:{tag:"F1 · VORM · NÄHTAVAD KÕHULIHASED",h:"Sinu tüüp: rasv alla, lihas nähtavale",lead:"Sul on vaja korraga vähem rasva ja rohkem toonust. See sobib, kui hoiad defitsiidi mõõdukana ja treenid targalt.",
+ mv:[["Treening","3 korda nädalas, kuni 60 minutit. Rasked baasharjutused säilitavad lihast, samal ajal kui rasv väheneb."],["Toitumine","Kerge defitsiit, mitte nälgimine. Valku iga päev ja hoia veresuhkru kõikumised kontrolli all: söö regulaarselt."],["Taastumine","Uni, üks puhkepäev nädalas, stressi maandamine. Liiga pikad trennid teevad rohkem kahju kui kasu."],["Järjepidevus","Anna endale 12 nädalat. Kõhulihased tulevad nähtavale siis, kui rasv on piisavalt madal."]],
+ plan:"JÕUD kava: algajana 2 nädalat kodused treeningud, siis 5RM ja kolm treeningut nädalas. Kogenuna alusta kohe 5RM-iga. Lisaks 10 000 sammu päevas."},
+C1:{tag:"C1 · CUT · DEFINEERITUD",h:"Sinu tüüp: kuiv ja defineeritud",lead:"Lihast on olemas. Nüüd on küsimus, kuidas rasv ära anda ilma lihast kaotamata.",
+ mv:[["Toitumine","Mõõdukas defitsiit ja kõrge valk. Süsivesikud trenni ümber, et jõud ja taastumine püsiksid."],["Treening","3 korda nädalas rasked seeriad 6–12 kordusega. Trenni lõppu 5–10 minutit intervalle."],["Taastumine","Cutis on uni ja stress kõige olulisemad. Ilma taastumiseta rasv ei lähe ja jõud langeb."],["Aeg","Planeeri 8–12 nädalat. Siis tee paus ja hoia tulemust."]],
+ plan:"JÕUD kava, definitsiooni rada: 5RM, kolm rasket treeningut nädalas ja lõppu 5–10 minutit intervalle."}};
+var A={},i=0,path=[],done=false,q=$("q"),foot=$("foot"),back=$("back");
+function build(){var p=[Q.age,Q.body];if(A.Keha==="Mõõdukas ülekaal")p.push(Q.goal);p.push(Q.exp);if(A.Keha==="Suur ülekaal"||A.Keha==="Lihast on, rasva vähem")p.push(Q.motiv);p.push(Q.contact);return p}
+function rings(){var n=$("nodes");n.innerHTML="";for(var k=0;k<path.length;k++){if(k){var b=el("b");if(k<=i)b.className="on";n.appendChild(b)}var c=el("i");c.className=k<i?"on":k===i?"now":"";n.appendChild(c)}}
+function outcome(){var b=A.Keha,e=A.Kogemus,g=A.Siht,m=A.Motivatsioon,beg=e==="Algaja";
+ if(b==="Kõhn"||b==="Lihast on, tahan rohkem")return beg?"M1":"M2";
+ if(b==="Mõõdukas ülekaal")return g==="Rasv alla"?"F2":(beg?"M1":"M2");
+ if(b==="Suur ülekaal")return m==="Väga"?"F2":"F1";
+ return m==="Väga"?"C1":"F1"}
+function render(){path=build();var s=path[i];rings();q.innerHTML="";foot.innerHTML="";q.className="q";back.hidden=i===0;
+ q.appendChild(el("p","step","")).innerHTML="Küsimus <b>"+(i+1)+"</b> / "+path.length;q.appendChild(el("h2","",s.t));
+ if(s.contact){contact();return}
+ var box=el("div","opts");q.appendChild(box);
+ s.o.forEach(function(o){var v=typeof o==="string"?o:o.v,b=el("button","opt"+(A[s.k]===v?" on":""));b.type="button";
+  if(typeof o==="string")b.textContent=o;else{b.appendChild(el("b","",o.t));b.appendChild(el("span","",o.d))}
+  b.onclick=function(){A[s.k]=v;[].forEach.call(box.children,function(x){x.classList.toggle("on",x===b)});setTimeout(function(){i++;px("trackCustom","KehaQuizStep",{n:i+1});render();window.scrollTo(0,0)},200)};box.appendChild(b)})}
+function contact(){var f={};[["Nimi","text","Nimi","name"],["Email","email","Email","email"],["Telefon","tel","Telefon","tel"]].forEach(function(r){var inp=el("input");inp.type=r[1];inp.placeholder=r[2];inp.setAttribute("aria-label",r[2]);inp.autocomplete=r[3];inp.value=A[r[0]]||"";inp.oninput=function(){A[r[0]]=inp.value.trim();inp.classList.remove("bad");err.textContent=""};f[r[0]]=inp;q.appendChild(inp)});
+ var hp=el("input","hp");hp.tabIndex=-1;hp.autocomplete="off";hp.name="hp_k7";hp.setAttribute("aria-hidden","true");q.appendChild(hp);var err=el("p","err");q.appendChild(err);
+ q.appendChild(el("p","fine","Saadan Sulle tulemuse ja treeningplaani. Võin saata ka kasulikke nippe. Saad alati loobuda."));
+ var b=el("button","btn","NÄITA MINU TÜÜPI");b.type="button";b.onclick=function(){var bad=null;
+  if(!A.Nimi)bad="Nimi";else if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(A.Email||""))bad="Email";else if(!A.Telefon||A.Telefon.replace(/\D/g,"").length<6)bad="Telefon";
+  if(bad){f[bad].classList.add("bad");f[bad].focus();err.textContent=bad==="Email"?"Sisesta korrektne email.":bad==="Telefon"?"Sisesta telefoninumber.":"Sisesta nimi.";return}
+  if(!hp.value){b.disabled=true;send()}result()};foot.appendChild(b)}
+function send(){var d={Nimi:A.Nimi,Email:A.Email,Telefon:A.Telefon,Allikas:"keha-kysimustik",Vanus:A.Vanus||"",Keha:A.Keha||"",Siht:A.Siht||"",Kogemus:A.Kogemus||"",Motivatsioon:A.Motivatsioon||"",Tulemus:outcome()};
+ px("track","SubmitApplication");if(!RECEIVER_URL)return;try{fetch(RECEIVER_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)})}catch(e){}}
+function result(){done=true;i=path.length;rings();back.hidden=true;foot.innerHTML="";q.innerHTML="";q.className="q res";var o=OUT[outcome()],nm=(A.Nimi||"").split(" ")[0];
+ q.appendChild(el("p","tag",o.tag));q.appendChild(el("h2","",(nm?nm+", ":"")+o.h));q.appendChild(el("p","lead",o.lead));
+ o.mv.forEach(function(m){var d=el("div","mv");d.appendChild(el("b","",m[0]));d.appendChild(el("span","",m[1]));q.appendChild(d)});
+ var p=el("div","plan");p.appendChild(el("b","","Sinu 1. kuu: JÕUD 4-nädalane kava"));p.appendChild(el("span","",o.plan));q.appendChild(p);
+ var tagCode=outcome(),msg="Tere Hendrik! Tegin vormi plaani testi"+(A.Nimi?" ("+A.Nimi+")":"")+".\nTüüp: "+o.tag+"\nVanus: "+(A.Vanus||"")+"\nKeha: "+(A.Keha||"")+(A.Siht?"\nEesmärk: "+A.Siht:"")+"\nKogemus: "+(A.Kogemus||"")+"\nTahan JÕUD 1. kuu kava ("+tagCode+" rada).";
+ if(WA_NR){var a=el("a","btn","SAA JÕUD KAVA WHATSAPPI");a.href="https://wa.me/"+WA_NR+"?text="+encodeURIComponent(msg.slice(0,900));a.target="_blank";a.rel="noopener";a.onclick=function(){px("trackCustom","KehaWhatsApp")};q.appendChild(a)}
+ else q.appendChild(el("p","lead","Hendrik saadab Sulle JÕUD 1. kuu kava emailile."));
+ var g=el("a","btn g","LIITU MEESTE GRUPIGA");g.href=GROUP;g.target="_blank";g.rel="noopener";q.appendChild(g);
+ q.appendChild(el("p","disc","Üldine info, mitte meditsiiniline nõuanne. Kui Sul on terviseprobleeme, räägi enne arstiga."));window.scrollTo(0,0)}
+back.onclick=function(){if(i>0&&!done){i--;render()}};
+$("start").onclick=function(){$("hero").style.display="none";$("app").style.display="block";px("trackCustom","KehaQuizStart");render();window.scrollTo(0,0)};
+})();
+</script></body></html>

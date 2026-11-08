@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="et">
+<head>
+<!-- Meta Pixel 587447591933718 (same dataset as Kompass). Silent on localhost/LAN so previews never pollute it. AI quiz uses SubmitApplication (NOT Lead) so it does not feed the women's Lead-optimised ad set. -->
+<script>
+(function(){var h=location.hostname;
+if(h==="localhost"||h==="127.0.0.1"||/\.local$/.test(h)||/^192\.168\./.test(h)){window.fbq=function(){}}
+else{!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','587447591933718')}
+window.px=function(){try{fbq.apply(null,arguments)}catch(e){}};px('track','PageView')})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#01010D">
+<title>AI küsimustik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#01010D;--ink:#EEECF8;--mut:#E8E6F5;--jade:#A58BFF;--acc:#88F9C0;--indigo:#6331FB}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:17px/1.5 -apple-system,"SF Pro Display","SF Pro Text",system-ui,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-text-size-adjust:100%}
+#bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:radial-gradient(70% 55% at 78% 8%,rgba(99,49,251,0.275),transparent 70%),radial-gradient(60% 50% at 8% 92%,rgba(99,49,251,0.176),transparent 72%),radial-gradient(40% 30% at 92% 96%,rgba(136,249,192,.14),transparent 72%),#01010D}
+#bg:before{content:"";position:absolute;inset:0;background:radial-gradient(1.2px 1.2px at 12% 22%,#fff 50%,transparent),radial-gradient(1px 1px at 78% 14%,#fff 50%,transparent),radial-gradient(1.4px 1.4px at 66% 72%,#cfe 50%,transparent),radial-gradient(1px 1px at 30% 80%,#fff 50%,transparent),radial-gradient(1px 1px at 90% 55%,#cdf 50%,transparent),radial-gradient(1px 1px at 45% 8%,#fff 50%,transparent),radial-gradient(1.2px 1.2px at 5% 60%,#eef 50%,transparent),radial-gradient(1px 1px at 55% 40%,#fff 50%,transparent),radial-gradient(1px 1px at 22% 48%,#fff 50%,transparent),radial-gradient(1.2px 1.2px at 84% 84%,#fff 50%,transparent);opacity:.8;animation:twinkle 7s ease-in-out infinite alternate}
+#bg:after{content:"";position:absolute;left:50%;top:-30%;width:90vmax;height:90vmax;translate:-50% 0;border-radius:50%;background:radial-gradient(circle,rgba(143,107,255,0.121),rgba(99,49,251,0.044) 45%,transparent 68%);filter:blur(30px);animation:drift 26s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.45}}@keyframes drift{to{translate:-42% 6%}}
+@media(prefers-reduced-motion:reduce){#bg:before,#bg:after{animation:none}}
+#ov{position:fixed;inset:0;z-index:1;background:rgba(1,1,13,.12)}
+main{position:relative;z-index:2}
+#bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(238,236,248,.12);z-index:5}
+#bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6331FB,#A58BFF 60%,#88F9C0);box-shadow:0 0 12px rgba(136,249,192,.6);transition:width .35s}
+main{max-width:640px;margin:0 auto;padding:44px 16px max(32px,env(safe-area-inset-bottom));min-height:100svh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;min-height:44px;color:var(--mut);font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+#back{all:unset;cursor:pointer;min-width:44px;min-height:44px;display:grid;place-items:center;font-size:22px;color:var(--ink)}
+#back[hidden]{visibility:hidden;display:grid}
+.q{flex:1;display:flex;flex-direction:column;justify-content:flex-start;padding:7vh 0 24px;animation:in .3s ease-out}
+.q.thanks{justify-content:center}
+
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+h1{font-size:clamp(21px,4.6vw,27px);line-height:1.15;letter-spacing:-.02em;font-weight:600;margin:0 0 8px;text-wrap:balance}
+.hint{color:var(--mut);font-size:15px;margin:0 0 20px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{all:unset;cursor:pointer;box-sizing:border-box;display:block;width:auto;max-width:100%;min-height:46px;padding:11px 18px;border-radius:22px;border:1.5px solid rgba(238,236,248,.28);background:rgba(10,8,34,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-weight:600;line-height:1.3;transition:transform .1s ease-out,border-color .15s}
+.opt:active{transform:scale(.98)}
+.opt.card{width:100%;padding:14px 20px}.opt b{display:block;font-weight:700}.opt .sub{display:block;margin-top:3px;font-weight:500;font-size:.88em;opacity:1}
+.opt:hover{border-color:rgba(165,139,255,0.385)}
+.opt.on{border-color:#88F9C0;color:var(--ink);background:rgba(136,249,192,.1);box-shadow:0 0 18px -4px rgba(136,249,192,.5)}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:rgba(1,1,13,.55);border:1.5px solid rgba(238,236,248,.28);border-radius:16px;padding:15px 18px;min-height:56px;margin-bottom:12px;outline:none}
+textarea{min-height:140px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--jade)}
+input.bad{border-color:#ff7b8a}
+.err{color:#ff9aa6;font-size:14px;min-height:20px;margin:0 0 8px}
+.btn{all:unset;cursor:pointer;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:100%;min-height:58px;padding:16px 30px;border-radius:99px;font-weight:800;font-size:18px;color:#fff;background:linear-gradient(180deg,#7A4DFF,#6331FB);border:1.5px solid rgba(136,249,192,.75);box-shadow:0 0 24px rgba(99,49,251,0.303),0 0 12px rgba(136,249,192,.25);letter-spacing:.08em;transition:transform .1s ease-out}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{opacity:.35;cursor:default}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.thanks{text-align:center}
+.thanks h1{color:var(--jade)}
+/* professional look: one glass card (HELM style) per question, segmented progress, radio rows, button bottom right */
+html,body{font-family:"Manrope",-apple-system,system-ui,sans-serif}
+#bar,#step{display:none}
+main{max-width:720px}
+#nodes{display:flex;align-items:center;flex:1;min-width:0;max-width:330px;margin:0 auto}
+#nodes i{display:block;flex:none;position:relative;box-sizing:border-box;width:19px;height:19px;border-radius:50%;border:2px solid rgba(238,236,248,.3);background:rgba(10,8,34,.5);transition:border-color .4s,background .4s,box-shadow .4s,transform .4s}
+#nodes i:after{content:"";position:absolute;left:5.5px;top:1.5px;width:4px;height:8px;border:solid #06251a;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .35s cubic-bezier(.3,1.6,.5,1) .12s}
+#nodes i.on{border-color:#88F9C0;background:#88F9C0;box-shadow:0 0 12px rgba(136,249,192,.55);animation:ringPop .5s ease-out}
+#nodes i.on:after{transform:rotate(45deg) scale(1)}
+#nodes i.now{border-color:#A58BFF;box-shadow:0 0 14px rgba(165,139,255,0.413);transform:scale(1.18);animation:ringPulse 1.8s ease-in-out infinite}
+#nodes i.now:before{content:"";position:absolute;inset:4px;border-radius:50%;background:#A58BFF}
+#nodes b{display:block;flex:1;min-width:3px;height:2px;border-radius:2px;background:rgba(238,236,248,.18);position:relative;overflow:hidden}
+#nodes b:after{content:"";position:absolute;inset:0;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#88F9C0,#A58BFF);transition:transform .55s ease-out}
+#nodes b.on:after{transform:scaleX(1)}
+@keyframes ringPop{0%{transform:scale(.7)}60%{transform:scale(1.28)}100%{transform:scale(1)}}
+@keyframes ringPulse{0%,100%{box-shadow:0 0 8px rgba(165,139,255,0.275)}50%{box-shadow:0 0 18px rgba(165,139,255,0.522)}}
+@media(prefers-reduced-motion:reduce){#nodes i,#nodes b:after{animation:none;transition:none}}
+.q{flex:none;justify-content:flex-start;margin-top:5vh;padding:34px 38px 30px;border-radius:18px;background:rgba(10,8,34,.62);border:1px solid rgba(143,107,255,0.121);border-top:2px solid #6331FB;box-shadow:0 -2px 22px -6px #6331FB,inset 0 1px 0 rgba(255,255,255,.06),0 24px 60px rgba(0,0,0,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);animation:in .35s ease-out}
+.q.thanks{justify-content:center;text-align:center;min-height:300px}
+.kick{margin:0 0 14px;font:600 12px/1 "Orbitron","Manrope",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--ink)}
+.kick b{color:#88F9C0;font-weight:700}
+h1{font-size:clamp(23px,4.2vw,30px);line-height:1.2;font-weight:600;letter-spacing:-.02em;margin:0 0 6px}
+.hint{color:var(--mut);font-size:15px;margin:2px 0 6px}
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.opt{display:flex;align-items:center;gap:12px;width:auto;max-width:100%;min-height:54px;padding:13px 16px;border-radius:12px;border:1px solid rgba(238,236,248,.22);background:rgba(1,1,13,.4);font-weight:600;font-size:16px;line-height:1.3;transition:border-color .15s,background .15s,transform .1s ease-out}
+.opt::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(238,236,248,.55);transition:all .2s}
+.opt.multi::before{border-radius:5px}
+.opt.long,.opt.card{grid-column:1/-1}
+.opt .txt{display:block}.opt b{display:block;font-weight:700}.opt .sub{display:block;margin-top:3px;font-weight:500;font-size:.9em}
+.opt:hover{border-color:rgba(165,139,255,0.44);background:rgba(99,49,251,0.077)}
+.opt.on{border-color:#88F9C0;background:rgba(136,249,192,.08);box-shadow:0 0 18px -6px rgba(136,249,192,.6)}
+.opt.on::before{border-color:#88F9C0;background:#88F9C0 radial-gradient(circle,#01010D 0 2.5px,transparent 3px)}
+.opt.multi.on::before{background:#88F9C0}
+.q>input,.q>textarea{width:100%;margin-top:6px}
+#foot{display:flex;justify-content:flex-end;margin-top:16px}
+#foot .btn{width:auto;min-width:230px}
+@media(max-width:560px){.q{padding:26px 20px 22px}.opts{grid-template-columns:1fr}#foot .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.q{animation:none}}
+input::placeholder,textarea::placeholder{color:var(--mut);opacity:1}
+.other{margin-top:14px}.other input{width:100%;max-width:380px}
+.thanks{align-items:stretch}.sum{text-align:left;display:grid;gap:9px;margin:14px 0}.sum div{display:grid;grid-template-columns:132px 1fr;gap:10px}.sum dt{color:var(--mut);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding-top:3px}.sum dd{margin:0;font-weight:600;line-height:1.35}.thanks .lead{color:var(--mut);margin:0}.thanks .concl{margin:6px 0 0}.thanks .wise{font-style:italic;margin:12px 0 22px}.btn.wa{text-decoration:none}
+@media(max-width:560px){.sum div{grid-template-columns:1fr;gap:2px}}
+</style>
+<style id="light" media="not all">
+/* LIGHT quiz: inverted dark palette on a soft pastel sky (8.11) */
+:root{--bg:#0b0914}
+html{filter:invert(1) hue-rotate(180deg) saturate(1.05);background:radial-gradient(60% 45% at 15% 10%,#2b214c,transparent 70%),radial-gradient(55% 45% at 90% 28%,#001809,transparent 70%),radial-gradient(45% 35% at 75% 85%,#210e00,transparent 70%),radial-gradient(70% 50% at 30% 95%,#43357a,transparent 70%),#0b0914;background-attachment:fixed}
+html,body{background:transparent}
+#bg{background:none}#bg:before{display:none}#bg:after{opacity:.5}#ov{display:none}
+#nodes i.on{background:#00713f;border-color:#00713f;box-shadow:0 0 10px rgba(0,113,63,.4)}#nodes i:after{border-color:#000}   /* soft mint rings + white ticks once inverted */
+</style>
+<script>/* auto theme by Estonian time (8.11): light between civil dawn and dusk in Tallinn, dark otherwise; ?theme=light|dark forces it */
+(function(){function tl(now){var f=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Tallinn",hour12:false,year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric"}).formatToParts(now),p={};f.forEach(function(x){p[x.type]=+x.value});
+var t0=Math.floor(now.getTime()/60000)*60000,off=(Date.UTC(p.year,p.month-1,p.day,p.hour%24,p.minute)-t0)/60000,doy=Math.floor((Date.UTC(p.year,p.month-1,p.day)-Date.UTC(p.year,0,0))/864e5),g=2*Math.PI/365*(doy-1),r=Math.PI/180;
+var eq=229.18*(0.000075+0.001868*Math.cos(g)-0.032077*Math.sin(g)-0.014615*Math.cos(2*g)-0.040849*Math.sin(2*g)),d=0.006918-0.399912*Math.cos(g)+0.070257*Math.sin(g)-0.006758*Math.cos(2*g)+0.000907*Math.sin(2*g)-0.002697*Math.cos(3*g)+0.00148*Math.sin(3*g);
+var lat=59.437*r,c=Math.cos(96*r)/(Math.cos(lat)*Math.cos(d))-Math.tan(lat)*Math.tan(d);if(c<-1)return true;if(c>1)return false;
+var ha=Math.acos(c)/r,rise=720-4*(24.754+ha)-eq+off,set=720-4*(24.754-ha)-eq+off,m=(p.hour%24)*60+p.minute;return m>=rise&&m<set}
+var q=(location.search.match(/[?&]theme=(light|dark)/)||[])[1],light;try{light=q?q==="light":tl(new Date())}catch(e){light=false}
+window.__tl=tl;if(light){var s=document.getElementById("light");if(s)s.media="all";document.documentElement.setAttribute("data-theme","light");var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content="light"}})();
+</script>
+</head>
+<body>
+<div id="bg"></div><div id="ov"></div>
+<div id="bar"><i></i></div>
+<main>
+  <div class="top"><button id="back" aria-label="Tagasi" hidden>←</button><span id="step"></span><div id="nodes"></div><span style="min-width:44px"></span></div>
+  <section class="q" id="q"></section>
+  <div id="foot"></div>
+</main>
+<script>
+(function(){
+  var WA_NR = "37255628934";   // Hendrik's WhatsApp: digits with country code (3725…); empty = the button is hidden
+  var RECEIVER_URL = "https://script.google.com/macros/s/AKfycbw5D-Vmuu6p7GuTzK2Da1_aQB_HC3YRmlif4WFjPngDvDw9AcxFDUwle_s9_FN0TtEo/exec";   // Google Apps Script /exec URL (inimai-receiver.gs)
+  var Q = [
+    {k:"Valik",t:"Mille arvelt tahaksid aega kokku hoida?",h:"Vali kõik, mis sobivad.",multi:1,o:["Emailid","Rahamajandus","Dokumendihaldus","Kliendisuhtlus","Planeerimine","Aruanded","Sisuloome"]},
+    {k:"AI tase",t:"Sinu AI kogemus",o:["Olen algaja või võhik","Olen tavakasutaja (küsin küsimusi)","Kasutan pidevalt ChatGPT, Claude tasulist paketti","Olen edasijõudnu ja tunnen koodi (Kasutuses kas CodeX, Claude Code, Terminal või Openclaw)"]},
+    {k:"Meeskond",t:"Kui suur on Su meeskond?",o:["Üksi","2–5","6–20","20+"]},
+    {k:"Äri",t:"Mis tüüpi äri Sul on?",o:["Füüsiline äri","Teenus","Online toode või coaching","E-pood","Muu"]},
+    {k:"Tunnid",t:"Palju Sa arvutis tööd teed?",h:"(keskmiselt ühes päevas)",o:["Alla 2 h","2–4 h","4–6 h","6–8 h","8+ h"]},
+    {k:"Arvuti",t:"Mis arvutit kasutad?",o:["Mac","Windows","Linux"]},
+    {k:"Eelarve",t:"Millist lahendust eelistaksid?",o:[
+      {v:"DIY · Tahan liikuda soodsalt ja rahulikult",t:"Tahan liikuda soodsalt ja rahulikult:",d:"Õpin ise ja rakendan omal käel"},
+      {v:"DWY · Tahan kohe tulemusi",t:"Tahan kohe tulemusi:",d:"Seame koos Sulle töötava süsteemi üles ja õpid samaaegselt"},
+      {v:"DFY · Tahan valmislahendust enda ettevõttele",t:"Tahan valmislahendust enda ettevõttele:",d:"Ehitame Sulle terviklahenduse ja treenime agendid 3 kuu jooksul"},
+      "Ei oska kohe öelda"]},
+    {k:"30 päeva",t:"Mis positiivset muutust tahaksid 30 päevaga omas töös näha?",h:"Kirjuta 3 lauset või märksõna",text:1},
+    {k:"contact",t:"Kuhu Sulle vastata?",contact:1}
+  ];
+  var A = {}, i = 0, done = false;
+  var $ = function(id){return document.getElementById(id)};
+  var q = $("q"), foot = $("foot"), back = $("back");
+  try{ var p = new URLSearchParams(location.search).get("pick"); if(p){ var want = p.split(","), m = Q[0].o.filter(function(x){return want.indexOf(x)>-1}); if(m.length){ A.Valik = m; i = 1; } } }catch(e){}
+  function el(t,c,x){var e=document.createElement(t); if(c)e.className=c; if(x!==undefined)e.textContent=x; return e}
+  var PIX='<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="5" r="2" fill="#88F9C0"/><path d="M20 7v3" stroke="#A58BFF" stroke-width="1.6" stroke-linecap="round"/><path d="M7 24a13 13 0 0 1 26 0c-6 2-20 2-26 0z" fill="#8F6BFF"/><circle cx="15" cy="21" r="2" fill="#0B0820"/><circle cx="25" cy="21" r="2" fill="#0B0820"/><path d="M11 27c0 5-3 6-3 9M17 28c0 4-2 6-2 8M23 28c0 4 2 6 2 8M29 27c0 5 3 6 3 9" stroke="#A58BFF" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>';
+  function ansText(j){ var s=Q[j], a=A[s.k]; if(a===undefined||a==="") return ""; var arr=Array.isArray(a)?a:[a]; return arr.map(function(v){ var o=(s.o||[]).filter(function(x){return (typeof x==="string"?x:x.v)===v})[0]; return o&&typeof o!=="string"?o.t.replace(/:$/,""):v }).join(", "); }
+  function ask(s){
+    var k = el("p","kick"); k.innerHTML = "Küsimus <b>"+("0"+(i+1)).slice(-2)+"</b> / "+("0"+Q.length).slice(-2); q.appendChild(k);
+    q.appendChild(el("h1","",s.t)); if(s.h) q.appendChild(el("p","hint",s.h));
+  }
+  function nodes(){ var n=$("nodes"); if(!n.firstChild){ for(var k=0;k<Q.length;k++){ if(k) n.appendChild(el("b")); n.appendChild(el("i")); } }
+    [].forEach.call(n.children,function(c,idx){ var k=c.tagName==="I"?idx/2:(idx-1)/2+1; if(c.tagName==="I") c.className = k<i?"on":k===i?"now":""; else c.className = k<=i?"on":""; }); }
+  function render(){
+    var s = Q[i]; q.innerHTML = ""; foot.innerHTML = "";
+    $("step").textContent = (i+1)+" / "+Q.length; nodes();
+    $("bar").firstChild.style.width = (i/Q.length*100)+"%";
+    back.hidden = i===0;
+    ask(s);
+    var next = el("button","btn", i===Q.length-1?"SAADA":"EDASI"); next.type="button";
+    if(s.contact){
+      var f = {};
+      [["Nimi","text","Nimi","name"],["Email","email","Email","email"],["Telefon","tel","Telefon","tel"]].forEach(function(r){
+        var inp = el("input"); inp.type=r[1]; inp.placeholder=r[2]; inp.autocomplete=r[3]; inp.value=A[r[0]]||""; inp.addEventListener("input",function(){A[r[0]]=inp.value.trim();inp.classList.remove("bad");err.textContent=""}); f[r[0]]=inp; q.appendChild(inp);
+      });
+      var hp = el("input","hp"); hp.tabIndex=-1; hp.autocomplete="off"; hp.name="hp_k7"; hp.setAttribute("aria-hidden","true"); q.appendChild(hp);
+      var err = el("p","err"); q.appendChild(err);
+      next.onclick = function(){
+        var bad = null;
+        if(!A.Nimi) bad="Nimi"; else if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(A.Email||"")) bad="Email"; else if(!A.Telefon || A.Telefon.replace(/\D/g,"").length<6) bad="Telefon";
+        if(bad){ f[bad].classList.add("bad"); f[bad].focus(); err.textContent = bad==="Email"?"Sisesta korrektne email.":bad==="Telefon"?"Sisesta telefoninumber.":"Sisesta nimi."; return; }
+        if(hp.value){ thanks(); return; }
+        next.disabled=true; send(); thanks();
+      };
+    } else if(s.text){
+      var ta = el("textarea"); ta.value=A[s.k]||""; ta.addEventListener("input",function(){A[s.k]=ta.value}); q.appendChild(ta);
+      next.onclick = go;
+    } else {
+      var box = el("div","opts"); q.appendChild(box);
+      var cur = A[s.k]; if(!s.multi && cur && typeof cur==="string") cur=[cur];
+      var oth = (!s.multi && typeof A[s.k]==="string" && A[s.k].indexOf("Muu")===0 && s.o.indexOf("Muu")>-1) ? A[s.k].replace(/^Muu:?\s*/,"") : null; if(oth!==null) cur=["Muu"];
+      function showOther(pre){   // "Muu" = small textbox: what exactly (8.11)
+        if(q.querySelector(".other")) return;
+        var w = el("div","other"), inp = el("input"); inp.type="text"; inp.placeholder="Kirjuta, mis äri"; inp.maxLength=80; inp.value=pre||""; w.appendChild(inp); q.appendChild(w);
+        var nb = el("button","btn","EDASI"); nb.type="button"; foot.innerHTML=""; foot.appendChild(nb);
+        nb.onclick = function(){ var t=inp.value.trim(); A[s.k]="Muu"+(t?": "+t:""); go(); };
+        inp.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); nb.click(); } });
+        inp.focus();
+      }
+      var sel = Array.isArray(cur)?cur.slice():[];
+      s.o.forEach(function(o){
+        var v = typeof o==="string"?o:o.v;   // options can be {v: stored value, t: title, d: one line under it}
+        var b = el("button","opt"+(typeof o==="string"?(o.length>34?" long":""):" card")+(s.multi?" multi":"")+(sel.indexOf(v)>-1?" on":"")); b.type="button";
+        var tx = el("span","txt"); if(typeof o==="string") tx.textContent=o; else { tx.appendChild(el("b","",o.t)); tx.appendChild(el("span","sub",o.d)); } b.appendChild(tx);
+        b.onclick = function(){
+          if(s.multi){ var k=sel.indexOf(v); if(k>-1) sel.splice(k,1); else sel.push(v); b.classList.toggle("on"); A[s.k]=sel.slice(); next.disabled=!sel.length; }
+          else if(v==="Muu"){ A[s.k]="Muu"; [].forEach.call(box.children,function(x){x.classList.toggle("on",x===b)}); showOther(); }
+          else { A[s.k]=v; setTimeout(go,180); [].forEach.call(box.children,function(x){x.classList.toggle("on",x===b)}); }
+        };
+        box.appendChild(b);
+      });
+      if(!s.multi) next=null; else next.disabled=!sel.length, next.onclick=go;
+      if(oth!==null) showOther(oth);
+    }
+    if(next) foot.appendChild(next);
+  }
+  function go(){ i++; render(); window.scrollTo(0,0); px("trackCustom","AIQuizStep",{n:i+1}) }
+  back.onclick = function(){ if(i>0 && !done){ i--; render(); } };
+  function send(){
+    var d = {}; Q.forEach(function(s){ if(!s.contact) d[s.k] = Array.isArray(A[s.k])?A[s.k].join(", "):(A[s.k]||""); });
+    d.Nimi=A.Nimi; d.Email=A.Email; d.Telefon=A.Telefon; d.Allikas="inimai-kysimustik"; px("track","SubmitApplication");
+    if(!RECEIVER_URL) return;
+    try{ fetch(RECEIVER_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)}) }catch(e){}
+  }
+  function thanks(){
+    done=true; i=Q.length; nodes(); $("bar").firstChild.style.width="100%"; $("step").textContent=""; back.hidden=true; foot.innerHTML="";
+    q.innerHTML=""; q.className="q thanks";
+    var nm=(A.Nimi||"").split(" ")[0];
+    q.appendChild(el("h1","","Aitäh"+(nm?", "+nm:"")+"."));
+    q.appendChild(el("p","lead","Siin on, mida Sa ütlesid:"));
+    var L={"Valik":"Aega võidame","AI tase":"AI kogemus","Meeskond":"Meeskond","Äri":"Äri","Tunnid":"Arvutis päevas","Arvuti":"Arvuti","Eelarve":"Lahendus","30 päeva":"Muutus 30 päevaga"}, dl=el("dl","sum"), lines=[];
+    Q.forEach(function(s){ if(s.contact) return; var v=Array.isArray(A[s.k])?A[s.k].join(", "):(A[s.k]||""); if(!v) return;
+      var r=el("div"); r.appendChild(el("dt","",L[s.k]||s.k)); r.appendChild(el("dd","",v)); dl.appendChild(r); lines.push((L[s.k]||s.k)+": "+v); });
+    q.appendChild(dl);
+    var pk=Array.isArray(A.Valik)?A.Valik:[];
+    q.appendChild(el("p","concl", pk.length?"Sinu järeldus: suurim ajavõit peitub siin: "+pk.join(", ").toLowerCase()+". Alustame sealt.":"Sinu järeldus: alustame sellest, mis Sind kõige rohkem kurnab."));
+    q.appendChild(el("p","wise","Ära tee rohkem. Tee õigemat. Ülejäänu anna agentidele."));
+    if(WA_NR){   // they write to Hendrik, with their own summary prefilled (8.11)
+      var msg="Tere Hendrik! Täitsin InimAI küsimustiku"+(A.Nimi?" ("+A.Nimi+")":"")+".\n"+lines.join("\n")+"\nKirjutan, et leida järgmine samm.";
+      var a=el("a","btn wa","KIRJUTA HENDRIKULE WHATSAPPI"); a.href="https://wa.me/"+WA_NR+"?text="+encodeURIComponent(msg.slice(0,900)); a.target="_blank"; a.rel="noopener";
+      a.addEventListener("click",function(){ px("trackCustom","AIQuizWhatsApp") }); q.appendChild(a);
+    } else q.appendChild(el("p","lead","Hendrik võtab Sinuga ühendust."));
+  }
+  render();
+})();
+</script>
+</body>
+</html>
