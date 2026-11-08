@@ -240,7 +240,7 @@ section.scene:first-of-type .kick{font-family:"Manrope",sans-serif;font-weight:7
 @media(prefers-reduced-motion:reduce){#s7 .tile.bon{animation:none}}
 .scene#s6{justify-content:flex-start;padding-top:max(56px,9vh)} /* FAQ: top-anchored so opening a box does not move the others (8.11) */
 .foot9{font-style:italic;margin-top:18px}.sig9{margin-top:14px}
-#s9{position:relative;padding-bottom:120px}.f9{position:absolute;left:0;right:0;bottom:0;padding:18px 16px 22px;border-top:1px solid rgba(238,236,248,.12);text-align:center;font-size:13px;line-height:1.5;color:var(--mut);opacity:.75}.f9 p{margin:0;font-style:italic}.f9 .f9s{margin-top:6px;font:600 10px/1 "Orbitron","Manrope",sans-serif;letter-spacing:.26em;text-transform:uppercase;font-style:normal}</style>
+#s9{position:relative;padding-bottom:120px}.f9{position:absolute;left:0;right:0;bottom:0;padding:18px 16px 22px;border-top:1px solid rgba(238,236,248,.12);text-align:center;font-size:13px;line-height:1.5;color:var(--mut);opacity:.75}.f9 p{margin:0;font-style:italic}.f9 .f9s{margin-top:6px;font:600 10px/1 "Orbitron","Manrope",sans-serif;letter-spacing:.26em;text-transform:uppercase;font-style:normal}#s4>*{transition:opacity .6s ease}#s4:not(.in)>*{opacity:0!important}</style>
 <style id="light" media="not all">
 /* LIGHT PREVIEW v2: inverted palette on warm off-white; globe is a soft watercolour so dark text reads */
 html{filter:invert(1) hue-rotate(180deg) saturate(1.1)}
@@ -418,5 +418,6 @@ var pr=document.getElementById('pickr');var goEl=document.getElementById('go');i
 })();
 </script>
 <!-- figure: Xbot (Mixamo) from three.js examples -->
+<script>(function(){var e=document.getElementById("s4");if(!e)return;var f=function(){e.classList.toggle("in",scrollY>innerHeight*.2)};addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
 </html>
