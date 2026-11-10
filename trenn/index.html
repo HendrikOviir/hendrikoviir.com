@@ -102,7 +102,7 @@ function contact(){var f={};[["Nimi","text","Nimi","name"],["Email","email","Ema
   if(bad){f[bad].classList.add("bad");f[bad].focus();err.textContent=bad==="Email"?"Sisesta korrektne email.":bad==="Telefon"?"Sisesta telefoninumber.":"Sisesta nimi.";return}
   if(!hp.value){b.disabled=true;send()}result()};foot.appendChild(b)}
 function send(){var d={Nimi:A.Nimi,Email:A.Email,Telefon:A.Telefon,Allikas:"keha-kysimustik",Vanus:A.Vanus||"",Keha:A.Keha||"",Siht:A.Siht||"",Kogemus:A.Kogemus||"",Motivatsioon:A.Motivatsioon||"",Tulemus:outcome()};
- px("track","SubmitApplication");if(!RECEIVER_URL)return;try{fetch(RECEIVER_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)})}catch(e){}}
+ px("track","SubmitApplication");if(!window.__leadFired){window.__leadFired=1;px("track","Lead",{content_name:"trenn quiz"})}if(!RECEIVER_URL)return;try{fetch(RECEIVER_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)})}catch(e){}}
 var SALE={
 M1:{h:"Saa rahulolu oma keha üle ja kuni +10 kg lihast 90 päevaga, vaid 2–3 trenni nädalas",t:["Baseerub treeningteadusel","Jõu ja lihase kasv","Jõusaalis või kodus"]},
 M2:{h:"Saa +5–10 kg lihast ja elu parim vorm 90 päevaga, vaid 2–3 trenni nädalas",t:["Baseerub treeningteadusel","Jõu ja lihase kasv","Jõusaalis või kodus"]},
