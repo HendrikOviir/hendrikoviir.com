@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="et" data-theme="dark"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="dark light"><meta name="theme-color" content="#111217">
+<title>Meeste tervis · tasuta live webinar 27.11</title>
+<meta name="description" content="Meeste tervis: jõud, energia, uni. Tasuta live webinar Zoomis, reede 27.11 kell 19:00.">
+<link rel="stylesheet" href="joux.css"></head><body>
+<header class="top"><button id="th" type="button" aria-label="Hele vaade">☀︎</button></header>
+<header class="hero hv-on"><div class="hv" aria-hidden="true"><video src="hero.mp4" poster="hero-poster.jpg" autoplay muted loop playsinline preload="auto"></video></div><div class="wrap">
+<p class="kick">Meeste tervise kuu raames</p>
+<h1>Treeni 2x nädalas, kasvata kuni 10 kilo lihast?</h1>
+<p class="sub">Kui vaja, sama süsteemiga võta 10–15 kg ülekaalu maha.</p>
+<div class="when"><i></i><span>Reede 27.11 kell 19–20 Zoomis</span></div>
+<div><a class="btn" href="#card">Registreerun TASUTA webinarile</a></div>
+</div></header>
+<section><div class="wrap"><h2>Webinaril tuleb juttu</h2><ol class="steps">
+<li>Kuidas hoida jõudu ja lihast, kui töö- ja pereelu on tihe.</li>
+<li>Mida süüa, et energia püsiks terve päeva.</li>
+<li>Uni: mis seda päriselt parandab.</li>
+<li>Lihtne nädalarütm, mida jõuad hoida.</li>
+</ol></div></section>
+<section class="alt"><div class="wrap"><h2>Kes juhib?</h2><div class="host"><img src="hendrik-bw.png" alt="Hendrik Oviir" width="120" height="120"><div><b>Hendrik Oviir</b><span>Soome Fitnessi Akadeemia lõpetaja, 17-aastane treeningukogemus, 1600+ meest treenitud, rahvusvaheline treenerilitsents, taust jõutõstmisest ning kulturismist &amp; fitnessist.</span></div></div></div></section>
+<section><div class="wrap"><div class="card" id="card"><h2>Broneeri oma koht</h2>
+<!-- SENDFOX: replace "#SENDFOX_FORM" with the real SendFox form URL. Fields: first_name + email. No endpoint is wired yet. -->
+<form id="f" action="#SENDFOX_FORM" method="post" novalidate>
+<input id="n" name="first_name" type="text" aria-label="Eesnimi" placeholder="Eesnimi" autocomplete="given-name">
+<input id="e" name="email" type="email" aria-label="E-post" placeholder="E-post" autocomplete="email">
+<input id="t" name="phone" type="tel" aria-label="Telefon" placeholder="+372 …" autocomplete="tel">
+<input class="hp" aria-hidden="true" id="hp" tabindex="-1" autocomplete="off" name="hp_k7">
+<label class="cons"><input type="checkbox" id="ok1"><span>Jah, saada mulle kutse ja webinariga seotud kirjad.</span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="btn block" id="go" type="submit">Registreeri tasuta</button>
+</form></div></div></section>
+<footer class="ft"><span class="fl"><a href="https://elukompass.github.io/tingimused.html#privaatsus">Privaatsus</a><span>·</span><a href="mailto:kaidi@kaidikarilaid.com">Kontakt</a></span></footer><script src="joux.js"></script>
+<script>
+(function(){var $=function(x){return document.getElementById(x)};
+$("f").addEventListener("submit",function(ev){var n=$("n").value.trim(),e=$("e").value.trim(),err=$("err");
+$("n").classList.remove("bad");$("e").classList.remove("bad");
+if(!n){ev.preventDefault();$("n").classList.add("bad");err.textContent="Sisesta eesnimi.";return}
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)){ev.preventDefault();$("e").classList.add("bad");err.textContent="Sisesta korrektne e-post.";return}
+if(!$("ok1").checked){ev.preventDefault();err.textContent="Palun kinnita linnukesega.";return}
+err.textContent="";ev.preventDefault();if($("hp").value)return;
+try{sessionStorage.setItem("jx_n",n.split(" ")[0])}catch(x){}
+/* TODO: when #SENDFOX_FORM is a real URL, POST first_name + email + phone (optional) to it here (fetch no-cors) before redirecting. */
+location.href="aitah.html"});
+})();
+</script></body></html>
