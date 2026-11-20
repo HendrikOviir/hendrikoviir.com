@@ -154,6 +154,6 @@ section h2{text-align:center}
 .tier{padding-top:18px;padding-bottom:18px}
 }
 /* 21.11 phone: no flat left dim; soft top/bottom shade + stronger text shadow */
-@media (max-width:899px){.hv:after{background:linear-gradient(180deg,rgba(17,18,23,.62) 0,rgba(17,18,23,.3) 28%,rgba(17,18,23,0) 48%,rgba(17,18,23,0) 68%,rgba(17,18,23,.55) 86%,var(--bg) 100%)}}
+@media (max-width:899px){.hv:after{background:linear-gradient(180deg,rgba(17,18,23,.55) 0,rgba(17,18,23,.15) 30%,rgba(17,18,23,0) 50%,rgba(17,18,23,0) 70%,rgba(17,18,23,.5) 88%,var(--bg) 100%),rgba(17,18,23,.38)}}
 .hero.hv-on h1{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 20px rgba(0,0,0,.7)}
 .hero.hv-on .sub{text-shadow:0 1px 3px rgba(0,0,0,.95),0 2px 18px rgba(0,0,0,.75)}
