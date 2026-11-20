@@ -169,3 +169,11 @@ section h2{text-align:center}
 @media(min-width:900px){.bar{padding:4px max(16px,calc((100vw - 1080px)/2)) 8px;scroll-padding:0 max(16px,calc((100vw - 1080px)/2))}.bac{flex-basis:360px}.bac{scroll-snap-align:start}}
 /* 21.11 consent on one line on phone */
 @media(max-width:600px){.cons{font-size:clamp(10.5px,2.95vw,14px);white-space:nowrap;align-items:center;gap:8px;letter-spacing:-.01em}.cons input{width:20px;height:20px;margin:0}}
+
+.pct{display:inline-block;vertical-align:middle;margin-left:6px;padding:3px 9px;border-radius:99px;background:var(--acc);color:var(--cta);font-size:14px;font-weight:800;letter-spacing:.02em}
+.h3s{font-size:.6em;font-weight:500;color:var(--mut)}
+
+.tiers .tier .lv,.tiers .tier h3,.tiers .tier .pr,.tiers .tier .alt2,.tier .lv,.tier h3,.tier .pr,.tier .alt2{text-align:center;display:block}
+.nw{white-space:nowrap}
+.bonus.nw{font-size:clamp(11px,3.3vw,14px)}
+.ph-hero.nobg:before{display:none}
