@@ -32,7 +32,7 @@ h2{font-weight:800;font-size:clamp(26px,5.4vw,36px);line-height:1.1;letter-spaci
 .steps li:before{content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:var(--acc);border:1.5px solid var(--acc)}
 .alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .host{display:flex;gap:18px;align-items:center}
-.host img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:50% 40%;border:2px solid var(--acc);flex:none;background:#000}
+.host img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:30% 40%;border:2px solid var(--acc);flex:none;background:#000}
 .host b{display:block;font-size:22px}.host span{color:var(--mut)}
 .card{padding:24px 18px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
 .card h2{font-size:clamp(24px,5vw,30px)}
@@ -144,3 +144,12 @@ section h2{text-align:center}
 .tiers .tier h3{text-align:left}
 .ph-hero .when{flex-wrap:nowrap;align-items:flex-start;max-width:100%}.ph-hero .when i{margin-top:.55em;flex:none}
 .tiers .tier .btn{margin-top:auto}
+
+.tier .btn.btn-top{margin-top:6px}
+@media(min-width:900px){
+.ph-hero .wrap{padding:20px 16px 14px}
+.ph-hero h1{font-size:34px;margin-bottom:6px}
+.ph-hero .sub{margin-bottom:10px}
+.ph-hero .when{margin-bottom:8px}
+.tier{padding-top:18px;padding-bottom:18px}
+}
