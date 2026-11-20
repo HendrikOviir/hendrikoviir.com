@@ -90,10 +90,10 @@ input.bad{border-color:var(--acc)}
 .hv:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,18,23,.92) 0,rgba(17,18,23,.78) 38%,rgba(17,18,23,0) 70%),linear-gradient(180deg,transparent 85%,var(--bg))}
 :root[data-theme=light] .hv{background:#ddd}
 :root[data-theme=light] .hv:after{background:linear-gradient(90deg,rgba(246,245,241,.94) 0,rgba(246,245,241,.8) 38%,rgba(246,245,241,0) 70%),linear-gradient(180deg,transparent 85%,var(--bg))}
-.hero.hv-on .wrap{width:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:7svh 16px 8svh;padding-right:36%}
+.hero.hv-on .wrap{width:100%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:7svh 16px 8svh;padding-right:36%}
 .hero.hv-on .wrap>div:last-child{width:100%}
 .hero.hv-on .kick{max-width:100%;font-size:13px;letter-spacing:.08em}
-.hero.hv-on h1,.hero.hv-on .sub,.hero.hv-on .when{margin:0}
+.hero.hv-on .kick{margin:0 0 16px}.hero.hv-on h1{margin:0 0 12px}.hero.hv-on .sub{margin:0}.hero.hv-on .when{margin:auto 0 14px}
 .hero.hv-on h1{font-size:30px}
 .hero.hv-on .sub{font-size:17px}
 .hero.hv-on .when{font-size:15px;padding:10px 12px}
