@@ -83,7 +83,7 @@ input.bad{border-color:var(--acc)}
 .hero.hv-on:before,.hero.hv-on:after{display:none}
 .hero.hv-on{display:flex;align-items:stretch;min-height:100svh;border-bottom:0}
 .hv{position:absolute;inset:0;z-index:0;overflow:hidden;background:#111217}
-.hv video{position:absolute;top:0;bottom:0;right:-22vw;width:130vw;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.hv video{position:absolute;top:0;bottom:0;right:-27vw;width:130vw;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .hv:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,18,23,.92) 0,rgba(17,18,23,.78) 38%,rgba(17,18,23,0) 70%),linear-gradient(180deg,transparent 85%,var(--bg))}
 .hero.hv-on .wrap{width:100%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:7svh 16px 8svh;padding-right:30%}
 .hero.hv-on .wrap>div:last-child{width:calc(100vw - 32px)}
@@ -113,3 +113,34 @@ input.bad{border-color:var(--acc)}
 .hero.hv-on .sub{color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 16px rgba(0,0,0,.6)}
 /* 20.11 hero button hugs its text on phone */
 @media (max-width:767px){.hero.hv-on .btn{width:auto;max-width:100%;padding:14px 22px;align-self:flex-start}}
+.bio{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:6px;color:var(--ink);font-size:16px}
+.bio li{position:relative;padding-left:18px;line-height:1.35}
+.bio li:before{content:"";position:absolute;left:0;top:.5em;width:7px;height:7px;border-radius:50%;background:var(--acc)}
+.host{align-items:flex-start}
+.hero.hv-on .acts{display:grid;gap:10px;max-width:none}
+.hero.hv-on .acts .btn{width:100%}
+.hero.hv-on .btn.ghost{background:rgba(17,18,23,.55);color:var(--ink);border:1.5px solid var(--line);animation:none;box-shadow:none}
+.hero.hv-on .btn.ghost:after{display:none}
+.cdw{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.cdw div{min-width:64px;padding:10px 6px;border-radius:14px;background:var(--card);border:1px solid var(--line);text-align:center}
+.cdw b{display:block;font-size:26px;font-variant-numeric:tabular-nums;line-height:1.1}
+.cdw span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+
+/* offer / replay pages: short hero on poster */
+.ph-hero{position:relative;overflow:hidden;text-align:center;border-bottom:1px solid var(--line)}
+.ph-hero:before{content:"";position:absolute;inset:0;background:url(hero-poster.jpg) 70% 25%/cover;opacity:.4}
+.ph-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,18,23,.5),var(--bg))}
+.ph-hero .wrap{position:relative;z-index:1;padding:48px 16px 40px}
+.ph-hero .kick{margin-bottom:16px}
+.ph-hero h1{font-size:clamp(32px,7vw,52px);margin:0 auto 12px;max-width:16em}
+.ph-hero .sub{margin:0 auto 20px;color:var(--ink);max-width:26em}
+.ph-hero .when{margin:0 auto 18px;text-align:left}
+.ph-hero .player{max-width:560px;margin:0 auto 20px}
+.ph-hero .btn{min-width:240px}
+.tier .bonus{color:var(--ink);font-size:15px;padding:10px 12px;border-radius:12px;border:1px dashed var(--acc)}
+.tier .bonus b{color:var(--acc)}
+.note a{color:var(--ink)}
+section h2{text-align:center}
+.tiers .tier h3{text-align:left}
+.ph-hero .when{flex-wrap:nowrap;align-items:flex-start;max-width:100%}.ph-hero .when i{margin-top:.55em;flex:none}
+.tiers .tier .btn{margin-top:auto}
