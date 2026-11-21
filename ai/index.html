@@ -4,7 +4,7 @@
 <!-- Meta Pixel 587447591933718 (same dataset as Kompass). Silent on localhost/LAN so previews never pollute it. AI quiz uses SubmitApplication (NOT Lead) so it does not feed the women's Lead-optimised ad set. -->
 <script>
 (function(){var h=location.hostname;
-if(h==="localhost"||h==="127.0.0.1"||/\.local$/.test(h)||/^192\.168\./.test(h)){window.fbq=function(){}}
+if(location.protocol==="file:"||h==="localhost"||h==="127.0.0.1"||/\.local$/.test(h)||/^192\.168\./.test(h)){window.fbq=function(){}}
 else{!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','587447591933718')}
 window.px=function(){try{fbq.apply(null,arguments)}catch(e){}};px('track','PageView')})();
 </script>
@@ -267,14 +267,26 @@ var ha=Math.acos(c)/r,rise=720-4*(24.754+ha)-eq+off,set=720-4*(24.754-ha)-eq+off
 var q=(location.search.match(/[?&]theme=(light|dark)/)||[])[1],light;try{light=q?q==="light":tl(new Date())}catch(e){light=false}
 window.__tl=tl;if(light){var s=document.getElementById("light");if(s)s.media="all";document.documentElement.setAttribute("data-theme","light");var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content="light"}})();
 </script>
-</head>
+<style>
+html{scroll-snap-type:none;scroll-behavior:auto}
+#ground{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:0;background:linear-gradient(0deg,rgba(7,17,24,.25),transparent 45%),url(ground.jpg) 64% center/cover;transform-origin:74% 62%;will-change:transform,opacity}
+#touchdown{pointer-events:none}
+@media(max-width:700px){#ground{background-position:76% center}}
+@media(prefers-reduced-motion:reduce){#ground{will-change:auto}}
+</style><style>
+#route{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.shot{position:absolute;inset:-1%;opacity:0;background-position:center;background-size:cover;transform-origin:55% 51%}
+#scenic{height:205vh;height:205svh;pointer-events:none}
+#ground{background-position:65% center}
+@media(max-width:700px){#ground{background-position:56% center}}
+</style></head>
 <body>
 <div id="bg"><video id="v" src="descent.mp4?v=0811a" poster="descent.jpg" muted playsinline preload="auto" tabindex="-1" aria-hidden="true"></video></div>
 <div id="space" aria-hidden="true"><img id="globe" src="globe.jpg" alt=""></div>
 <div id="cloud" aria-hidden="true"></div>
 <div id="dim"></div>
 <div id="grain"></div>
-<main>
+<div id="route" aria-hidden="true"><div class="shot" style="background-image:url(clouds.jpg)"></div><div class="shot" style="background-image:url(approach.jpg)"></div><div class="shot" style="background-image:url(coast.jpg)"></div><div class="shot" style="background-image:url(forest.jpg)"></div></div><div id="ground" aria-hidden="true"></div><main>
 <section class="scene s1">
  <p class="kick s">Päevad mööduvad arvutitööd tehes?</p>
  <h1 class="s"><span class="mid">Inimene ja AI.</span><span class="glow l2">Sinu äri uus meeskond.</span></h1>
@@ -359,7 +371,7 @@ window.__tl=tl;if(light){var s=document.getElementById("light");if(s)s.media="al
  <p class="proof s"><b class="pr">Tõestus:</b><br>Hendriku meeskond: 48 oskust ja 7 automaatset tööd käivad iga päev.<br>Meeskond AURA üles seatud ja töötab esimese partneri heaks.</p>
 </section>
 
-<section class="scene panel" id="s9"><span id="end"></span>
+<div id="scenic" aria-hidden="true"></div><section class="scene" id="touchdown" aria-label="Järve kaldal seisab VR-prillidega mees klaviatuuri ja puuteplaadi ees"></section><section class="scene panel" id="s9"><span id="end"></span>
  <h2 class="s">Mille arvelt tahaksid aega <span class="glow">kokku hoida?</span></h2>
  <div class="pick s" id="pick">
   <button data-r="Emailid">Emailid</button><button data-r="Rahamajandus">Rahamajandus</button><button data-r="Dokumendihaldus">Dokumendihaldus</button><button data-r="Kliendisuhtlus">Kliendisuhtlus</button><button data-r="Planeerimine">Planeerimine</button><button data-r="Aruanded">Aruanded</button><button data-r="Sisuloome">Sisuloome</button>
@@ -371,7 +383,7 @@ window.__tl=tl;if(light){var s=document.getElementById("light");if(s)s.media="al
 
 </main>
 <button class="dn" id="dn" type="button" aria-label="Eelmine / Järgmine"><span class="up"><svg viewBox="0 0 24 24" fill="none" stroke="#EEECF8" stroke-width="2" stroke-linecap="round"><path d="M6 15l6-6 6 6"/></svg></span><span><svg viewBox="0 0 24 24" fill="none" stroke="#EEECF8" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 <script src="landing.js?v=0811b"></script>
 <script>
 (function(){
@@ -392,13 +404,69 @@ function ok(){if(v.duration&&isFinite(v.duration))dur=v.duration}
 v.addEventListener('loadedmetadata',ok);v.addEventListener('loadeddata',ok);v.load();
 var nudged=false;function nudge(){if(nudged)return;nudged=true;var p=v.play();if(p&&p.then)p.then(function(){v.pause()}).catch(function(){});else v.pause()}
 addEventListener('touchstart',nudge,{once:true,passive:true});addEventListener('scroll',nudge,{once:true,passive:true});
-function frame(){
-  var A=s2t.offsetTop,B=s3t.offsetTop,H=innerHeight,pv=scrollY<B?scrollY/B:(scrollY-B)/H+1; // S2 = Europe landing, S3 = clouds, later screens continue down
+var shots=Array.from(document.querySelectorAll(".shot"));var ground=document.getElementById('ground'), arrival=document.getElementById('touchdown');
+// A shallow depth field keeps the horizon steady as the road moves beneath the camera.
+function roadCamera(shot, filename, bend){
+  const canvas=document.createElement('canvas'), ctx=canvas.getContext('2d'), img=new Image();
+  if(!ctx || reduce)return null;
+  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none';
+  shot.appendChild(canvas);img.src=filename;
+  let last=-1;
+  return function(progress){
+    if(!img.complete || !img.naturalWidth)return;
+    const w=Math.min(1440,shot.offsetWidth), h=Math.round(w*shot.offsetHeight/shot.offsetWidth);
+    if(!w || !h)return;
+    if(canvas.width!==w || canvas.height!==h){canvas.width=w;canvas.height=h;last=-1}
+    if(Math.abs(progress-last)<.0008)return;
+    last=progress;
+    const ratio=Math.max(w/img.width,h/img.height)*1.18;
+    const viewW=w/ratio, viewH=h/ratio;
+    const x=(img.width-viewW)/2, y=(img.height-viewH)/2;
+    for(let row=0;row<h;row+=3){
+      const band=Math.min(3,h-row), v=row/h;
+      const depth=Math.pow(Math.max(0,(v-.34)/.66),1.35);
+      const scale=1+progress*depth*.16;
+      const width=viewW/scale;
+      const pan=bend*Math.sin(progress*Math.PI*.7)*depth*.065*viewW;
+      const sy=y+viewH*(.34+(v-.34)/scale);
+      ctx.drawImage(img,x+(viewW-width)/2+pan,sy,width,band/ratio/scale,0,row,w,band);
+    }
+  }
+}
+const roadCameras=[null,null,roadCamera(shots[2],'coast.jpg',1),roadCamera(shots[3],'forest.jpg',-.6)];
+let flightY=window.scrollY, previousTime=performance.now();
+function frame(now){
+  const dt=Math.min(.064,Math.max(0,(now-previousTime)/1000));
+  previousTime=now;
+  flightY+= (window.scrollY-flightY)*(reduce?1:1-Math.exp(-dt*6));
+  if(Math.abs(window.scrollY-flightY)<.2)flightY=window.scrollY;
+  const Hview=Math.max(1,innerHeight), y=flightY;
+  const scenic=document.getElementById('scenic').offsetTop;
+  const anchors=[s3t.offsetTop+Hview*.45,document.getElementById('s5').offsetTop,document.getElementById('s7').offsetTop,scenic,arrival.offsetTop];
+  const smooth=x=>{x=Math.min(1,Math.max(0,x));return x*x*(3-2*x)};
+  shots.forEach((shot,j)=>{
+    const enter=anchors[j], exit=anchors[j+1];
+    const fade=reduce?Number(y>=enter):smooth((y-enter)/(.9*Hview));
+    const isVisible=y>=enter && y<exit+Hview;
+    if(!isVisible){shot.style.opacity=0;return}
+    const travel=Math.max(0,Math.min(1,(y-enter)/(exit-enter+Hview)));
+    shot.style.opacity=fade;
+    if(roadCameras[j])roadCameras[j](travel);
+    const turn=[-2,1,-5,4][j]*Math.sin(travel*Math.PI*.72);
+    const roll=[-7,2,-2,3][j]*(1-travel);
+    shot.style.transform=reduce?'none':'translate3d('+turn+'%,'+(-2.5*travel)+'%,0) rotate('+roll+'deg) scale('+(1.18*Math.exp(.32*travel))+')';
+    shot.style.filter='brightness('+(y<scenic?'.55':(.55+.45*smooth((y-scenic)/Hview)))+')';
+  });
+  const distance=(y-arrival.offsetTop)/Hview, ease=smooth((distance+.65)/.65);
+  ground.style.opacity=reduce?Number(distance>=0):ease;
+  ground.style.transform=reduce?'none':'scale('+(1+.10*ease)+')';
+  ground.style.filter='brightness('+(1-.63*smooth(distance))+')';
+  var A=s2t.offsetTop,B=s3t.offsetTop,H=innerHeight,pv=y<B?y/B:(y-B)/H+1; // S2 = Europe landing, S3 = clouds, later screens continue down
   var p=Math.max(0,Math.min(T.length-1.001,pv));
   cur+=(p-cur)*(reduce?1:.05);
   var i=Math.floor(cur),f=cur-i,t=T[i]+f*(T[i+1]-T[i]);
   if(dur&&!reduce&&!v.seeking&&Math.abs(v.currentTime-t)>.01)v.currentTime=Math.min(t,dur-.05);
-  var k1=reduce?1:.03;zLs+=(Math.min(1,scrollY/A)-zLs)*k1;zfs+=(Math.max(0,Math.min(1,(scrollY-A)/(B-A)))-zfs)*k1;var z=zLs;if(!reduce)if(has3d){Landing.set(z*.45)}else{var e=z*z*(3-2*z),k=1+e*e*9;gl.style.transformOrigin='54% 24%';gl.style.transform='translate(0,'+(e*26)+'%) scale('+k+') rotate('+(e*-6)+'deg)';gl.style.filter='brightness('+(.85+e*.25).toFixed(2)+') saturate(1.05) blur('+(Math.max(0,e-.45)*44).toFixed(1)+'px)';}cl.style.opacity=0;sp.style.opacity=(1-Math.min(1,Math.max(0,(zfs-.1)/.6))).toFixed(3);sp.style.visibility=zfs>=.72?'hidden':'visible';s2.style.opacity=Math.min(1,Math.max(0,(z-.5)/.35)).toFixed(3);s3.style.opacity=Math.min(1,Math.max(0,(innerHeight*.62-s3.getBoundingClientRect().top)/(innerHeight*.3))).toFixed(3);var go=Math.abs(s3.getBoundingClientRect().top)<innerHeight*.12;if(go!==s3.classList.contains('go')){s3.classList.toggle('go',go);if(go&&window.s3hint)window.s3hint()}var zz=z*.5;s1.style.opacity=(1-Math.min(1,Math.max(0,(zfs-.1)/.35))).toFixed(3);var hz=Math.min(zz,.5)/.5;s1h.style.transform='translateY(calc(-50% + '+(zz*32).toFixed(2)+'vh)) scale('+(1-hz*.4).toFixed(3)+')';
+  var k1=reduce?1:.03;zLs+=(Math.min(1,y/A)-zLs)*k1;zfs+=(Math.max(0,Math.min(1,(y-A)/(B-A)))-zfs)*k1;var z=zLs;if(!reduce)if(has3d){Landing.set(z*.45)}else{var e=z*z*(3-2*z),k=1+e*e*9;gl.style.transformOrigin='54% 24%';gl.style.transform='translate(0,'+(e*26)+'%) scale('+k+') rotate('+(e*-6)+'deg)';gl.style.filter='brightness('+(.85+e*.25).toFixed(2)+') saturate(1.05) blur('+(Math.max(0,e-.45)*44).toFixed(1)+'px)';}cl.style.opacity=0;sp.style.opacity=(1-Math.min(1,Math.max(0,(zfs-.1)/.6))).toFixed(3);sp.style.visibility=zfs>=.72?'hidden':'visible';s2.style.opacity=Math.min(1,Math.max(0,(z-.5)/.35)).toFixed(3);s3.style.opacity=Math.min(1,Math.max(0,(innerHeight*.62-s3.getBoundingClientRect().top)/(innerHeight*.3))).toFixed(3);var go=Math.abs(s3.getBoundingClientRect().top)<innerHeight*.12;if(go!==s3.classList.contains('go')){s3.classList.toggle('go',go);if(go&&window.s3hint)window.s3hint()}var zz=z*.5;s1.style.opacity=(1-Math.min(1,Math.max(0,(zfs-.1)/.35))).toFixed(3);var hz=Math.min(zz,.5)/.5;s1h.style.transform='translateY(calc(-50% + '+(zz*32).toFixed(2)+'vh)) scale('+(1-hz*.4).toFixed(3)+')';
   if(!reduce){var k=Math.min(1,Math.max(0,(cur-.3)/1.5)),push=.5*Math.sin(Math.PI*k);v.style.transform='scale('+(1.06+cur*.035+push).toFixed(4)+') translateY('+(push*6).toFixed(2)+'%)'}
   var endEl=document.getElementById('end'),last=scrollY>document.getElementById('s9').offsetTop-innerHeight*.6;document.getElementById('dim').style.opacity=Math.min(.55,Math.max(0,(pv-.6)*.55)).toFixed(3);dn.style.opacity=last?0:1;dn.style.pointerEvents=last?'none':'auto';
   requestAnimationFrame(frame)}
