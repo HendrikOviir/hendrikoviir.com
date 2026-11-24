@@ -47,13 +47,13 @@ $("n").classList.remove("bad");$("e").classList.remove("bad");
 if(!n){ev.preventDefault();$("n").classList.add("bad");err.textContent="Sisesta eesnimi.";return}
 if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)){ev.preventDefault();$("e").classList.add("bad");err.textContent="Sisesta korrektne e-post.";return}
 if(!$("ok1").checked){ev.preventDefault();err.textContent="Palun kinnita linnukesega.";return}
-err.textContent="";ev.preventDefault();if($("hp").value)return;
+err.textContent="";ev.preventDefault();if($("go").disabled)return;$("go").disabled=true;if($("hp").value){setTimeout(function(){location.href="aitah.html"},1200);return}
 try{sessionStorage.setItem("jx_n",n.split(" ")[0])}catch(x){}
 var src=(new URLSearchParams(location.search).get("src")||new URLSearchParams(location.search).get("utm_source")||"lp");
 px("track","CompleteRegistration");
 try{fetch("https://script.google.com/macros/s/AKfycbw5D-Vmuu6p7GuTzK2Da1_aQB_HC3YRmlif4WFjPngDvDw9AcxFDUwle_s9_FN0TtEo/exec",{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},body:JSON.stringify({Nimi:n,Email:e,Telefon:$("t").value.trim(),Allikas:"meeste-webinar-27-11 · "+src,Valik:"webinar mehed"})})}catch(x){}
 try{var fd=new URLSearchParams();fd.append("first_name",n.split(" ")[0]);fd.append("email",e);fetch("https://sendfox.com/form/1yg70y/1kpowj",{method:"POST",mode:"no-cors",keepalive:true,body:fd})}catch(x){}
-setTimeout(function(){location.href="aitah.html"},400)});
+setTimeout(function(){location.href="aitah.html"},1200)});
 })();
 </script><script>
 (function(){var r=document.getElementById("bar");if(!r)return;var c=r.children,n=document.getElementById("bn");
