@@ -64,30 +64,33 @@ textarea:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
   <p class="lead" id="lead"></p>
   <div class="card">
     <section class="step on">
-      <div class="areas" id="c-area"><button data-v="keha">Keha</button><button data-v="vaim">Vaim</button><button data-v="suhted">Suhted</button><button data-v="raha">Raha ja karjäär</button></div>
+      <label class="q" style="margin-top:0">Mis on Su peamine eesmärk?</label>
+      <div class="areas" id="c-area"><button data-v="rasv">Rasv alla</button><button data-v="lihas">Lihaste kasv</button></div>
+      <label class="q">Hetkeolukord kehas</label>
+      <div class="opts" id="c-body"><button data-v="suur">Suur ülekaal</button><button data-v="mood">Mõõdukas ülekaal</button><button data-v="kaetud">Lihast on, rasv katab selle ära</button><button data-v="kohn">Kõhn</button><button data-v="kasvataks">Lihast on, kasvataks veel</button></div>
     </section>
 
     <section class="step">
-      <label class="q" for="f-goal">Kuhu soovid jõuda?<span class="hint">Kirjuta nii, nagu see oleks juba tõsi.</span></label><textarea id="f-goal" maxlength="300"></textarea>
-      <label class="q" for="f-life">Mismoodi Su elu siis muutuks?</label><textarea id="f-life" maxlength="300"></textarea>
-      <label class="q" for="f-pain">Mis on selles praegu kõige raskem?</label><textarea id="f-pain" maxlength="300"></textarea>
+      <label class="q" for="f-goal">Mis vormis oled 90 päeva pärast?<span class="hint">Kirjuta nii, nagu see oleks juba tõsi. Kaal, lihas, kõht, jõud.</span></label><textarea id="f-goal" maxlength="300"></textarea>
+      <label class="q" for="f-life">Mismoodi Su elu siis muutuks?<span class="hint">Peeglis, töös, suhetes, enesekindluses.</span></label><textarea id="f-life" maxlength="300"></textarea>
+      <label class="q" for="f-pain">Mis on trenni ja toitumise juures praegu kõige raskem?</label><textarea id="f-pain" maxlength="300"></textarea>
       <div class="nav"><button class="btn ghost back" data-back>←</button><button class="btn" data-next>Edasi</button></div>
     </section>
 
     <section class="step">
-      <div class="meter"><div class="top"><label for="r-now">Kus oled täna?</label><b id="r-now-v">4</b></div><input type="range" id="r-now" min="1" max="10" value="4"><div class="ends"><span>kaugel</span><span>kohal</span></div></div>
-      <div class="meter"><div class="top"><label for="r-want">Kus tahaksid olla?</label><b id="r-want-v">9</b></div><input type="range" id="r-want" min="1" max="10" value="9"><div class="ends"><span>kaugel</span><span>kohal</span></div></div>
+      <div class="meter"><div class="top"><label for="r-now">Kui rahul oled oma vormiga täna?</label><b id="r-now-v">4</b></div><input type="range" id="r-now" min="1" max="10" value="4"><div class="ends"><span>kaugel</span><span>kohal</span></div></div>
+      <div class="meter"><div class="top"><label for="r-want">Kus tahaksid olla 90 päeva pärast?</label><b id="r-want-v">9</b></div><input type="range" id="r-want" min="1" max="10" value="9"><div class="ends"><span>kaugel</span><span>kohal</span></div></div>
       <div class="gapn"><b id="gap-n">5</b><span>sammu vahet</span></div>
-      <label class="q" for="f-gap">Mis saab võimalikuks, kui Sa selle valid?<span class="hint">Millised võimalused avanevad, kui Sa selle ära teed?</span></label><textarea id="f-gap" maxlength="300"></textarea>
+      <label class="q" for="f-gap">Mis saab võimalikuks, kui oled selles vormis?<span class="hint">Mida teed teisiti, mida julged, mida saad?</span></label><textarea id="f-gap" maxlength="300"></textarea>
       <div class="nav"><button class="btn ghost back" data-back>←</button><button class="btn" data-next>Edasi</button></div>
     </section>
 
     <section class="step">
-      <div class="meter" style="margin-top:0"><div class="top"><label for="r-time">Vaba aega iseendale päevas</label><b id="r-time-v">2 tundi</b></div><input type="range" id="r-time" min="0" max="12" value="2"><div class="ends"><span>alla 1 tunni</span><span>12 tundi</span></div></div>
+      <div class="meter" style="margin-top:0"><div class="top"><label for="r-time">Trenne nädalas praegu</label><b id="r-time-v">2 korda</b></div><input type="range" id="r-time" min="0" max="7" value="2"><div class="ends"><span>0</span><span>7</span></div></div>
       <div class="meter"><div class="top"><label for="r-energy">Energia tavalisel päeval</label><b id="r-energy-v">5</b></div><input type="range" id="r-energy" min="1" max="10" value="5"><div class="ends"><span>vähe</span><span>palju</span></div></div>
-      <label class="q" for="f-drain">Mis sööb Su energiat kõige rohkem?</label><textarea id="f-drain" maxlength="300"></textarea>
-      <div class="meter"><div class="top"><label for="r-people">Kui palju lähedased Sind toetavad?</label><b id="r-people-v">5</b></div><input type="range" id="r-people" min="1" max="10" value="5"><div class="ends"><span>üldse mitte</span><span>täielikult</span></div></div>
-      <label class="q">Kas Sul on vabu vahendeid, mida soovi korral iseendasse investeerida?</label>
+      <label class="q" for="f-drain">Mis takistab Sul regulaarselt trenni tegemast ja hästi söömast?</label><textarea id="f-drain" maxlength="300"></textarea>
+      <div class="meter"><div class="top"><label for="r-people">Uni tavalisel ööl</label><b id="r-people-v">7 h</b></div><input type="range" id="r-people" min="4" max="10" value="7"><div class="ends"><span>4 h</span><span>10 h</span></div></div>
+      <label class="q">Kas Sul on vabu vahendeid, mida soovi korral oma tervisesse ja vormi investeerida?</label>
       <div class="opts" id="c-money"><button data-v="jah">Jah, vahendid on olemas</button><button data-v="umber">On, kuid piiratud hulgal</button><button data-v="ei">Praegu mitte</button></div>
       <div class="nav"><button class="btn ghost back" data-back>←</button><button class="btn" data-next>Edasi</button></div>
     </section>
@@ -120,46 +123,48 @@ const $ = id => document.getElementById(id), val = id => $(id).value.trim();
 const emailOk = s => /^[^\s@]{1,64}@[^\s@]{1,190}\.[a-z]{2,24}$/i.test(s);
 const Q = new URLSearchParams(location.search);
 const HEAD = [
-  ["Sinu fookus", "Vali valdkond, kus soovid praegu kõige rohkem edasi liikuda."],
-  ["Sinu siht", "Kuhu Sa liigud ja miks see Sulle oluline on?"],
+  ["Sinu fookus", "Vali eesmärk ja kus Su keha täna on."],
+  ["Sinu siht", "Milline vorm ootab Sind 90 päeva pärast ja miks see Sulle oluline on?"],
   ["Distants Sinu sihini", "Kui kaugel see täna on ja mida see vahe Sult võtab?"],
-  ["Mis Sind tagasi hoiab", "Aeg, energia, inimesed ja raha. Nähtav takistus on ületatav."],
+  ["Mis Sind tagasi hoiab", "Trenn, energia, uni ja raha. Nähtav takistus on ületatav."],
   ["Sinu tahe", "See on võimalik, kui see on Sulle tõeliselt oluline."],
   ["Kokkuvõte", ""]];
-let area = "", money = "", cur = 0;
+let area = "", body = "", money = "", cur = 0;
 const steps = [...document.querySelectorAll(".step")], dots = [...document.querySelectorAll(".st")];
-const need = [() => area, () => val("f-goal") && val("f-life") && val("f-pain"), () => val("f-gap"), () => money && val("f-drain"), () => val("f-ready") && val("f-name") && emailOk(val("f-email"))];
+const need = [() => area && body, () => val("f-goal") && val("f-life") && val("f-pain"), () => val("f-gap"), () => money && val("f-drain"), () => val("f-ready") && val("f-name") && emailOk(val("f-email"))];
 function refresh(){ steps.forEach((s, k) => { const b = s.querySelector("[data-next]"); if (b) b.disabled = !need[k](); }); $("send").disabled = !need[4](); }
 function show(i){ cur = i; steps.forEach((s, k) => s.classList.toggle("on", k === i));
   dots.forEach((d, k) => { d.classList.toggle("done", k < i); d.classList.toggle("now", k === i); d.querySelector("i").textContent = k < i ? "✓" : k + 1; });
   $("fill").style.width = "calc((100% - 32px) * " + Math.min(i, 4) / 4 + ")";
   $("h").textContent = HEAD[i][0]; $("lead").textContent = HEAD[i][1]; refresh(); window.scrollTo({ top: 0, behavior: "smooth" }); }
 function chooser(id, set){ const box = $(id); box.querySelectorAll("button").forEach(b => b.onclick = () => { box.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); set(b.dataset.v); refresh(); }); }
-chooser("c-area", v => { area = v; setTimeout(() => { if (cur === 0) show(1); }, 300); }); chooser("c-money", v => money = v);
+const auto1 = () => setTimeout(() => { if (cur === 0 && area && body) show(1); }, 300);
+chooser("c-area", v => { area = v; auto1(); }); chooser("c-body", v => { body = v; auto1(); }); chooser("c-money", v => money = v);
 const gap = () => { $("gap-n").textContent = Math.max(0, $("r-want").value - $("r-now").value); };
-["now","want","energy","people","will"].forEach(k => { const r = $("r-" + k); r.oninput = () => { $("r-" + k + "-v").textContent = r.value; gap(); }; });
-const hrs = n => n == 0 ? "Alla 1 tunni" : n == 1 ? "1 tund" : n + " tundi"; $("r-time").oninput = () => $("r-time-v").textContent = hrs(+$("r-time").value);
+["now","want","energy","will"].forEach(k => { const r = $("r-" + k); r.oninput = () => { $("r-" + k + "-v").textContent = r.value; gap(); }; });
+$("r-people").oninput = () => $("r-people-v").textContent = $("r-people").value + " h";
+const hrs = n => n == 1 ? "1 kord" : n + " korda"; $("r-time").oninput = () => $("r-time-v").textContent = hrs(+$("r-time").value);
 document.querySelectorAll("[data-next]").forEach(b => b.onclick = () => show(cur + 1));
 document.querySelectorAll("[data-back]").forEach(b => b.onclick = () => show(cur - 1));
 document.addEventListener("input", e => { if (e.target.tagName === "TEXTAREA") { e.target.style.height = "auto"; e.target.style.height = e.target.scrollHeight + 2 + "px"; } refresh(); });
 (function(){ const e = Q.get("e"); if (e && emailOk(e)) $("f-email").value = e; })();
-const AREA = { keha: "Keha", vaim: "Vaim", suhted: "Suhted", raha: "Raha ja karjäär" }, MONEY = { jah: "Jah, vahendid on olemas", umber: "On, kuid piiratud hulgal", ei: "Praegu mitte" };
+const AREA = { rasv: "Rasv alla", lihas: "Lihaste kasv" }, BODY = { suur: "Suur ülekaal", mood: "Mõõdukas ülekaal", kaetud: "Lihast on, rasv katab selle ära", kohn: "Kõhn", kasvataks: "Lihast on, kasvataks veel" }, MONEY = { jah: "Jah, vahendid on olemas", umber: "On, kuid piiratud hulgal", ei: "Praegu mitte" };
 $("send").onclick = () => {
   if ($("send").disabled || $("send").dataset.sent) return; $("send").dataset.sent = "1"; $("send").disabled = true;
   const src = Q.get("src") || Q.get("utm_source") || "email";
   const d = { Nimi: val("f-name"), Email: val("f-email"), Telefon: val("f-phone"), Allikas: "meeste-webinar-27-11 · tooleht · " + src, Valik: "tooleht mehed",
-    "Fookus": AREA[area], "Siht": val("f-goal"), "Elu siis": val("f-life"), "Kõige raskem": val("f-pain"), "Distants praegu": +$("r-now").value, "Distants soov": +$("r-want").value,
-    "Mis saab võimalikuks": val("f-gap"), "Vaba aeg (h)": +$("r-time").value, "Energia": +$("r-energy").value, "Mis sööb energiat": val("f-drain"), "Lähedaste tugi": +$("r-people").value,
+    "Eesmärk": AREA[area], "Keha": BODY[body], "Siht 90p": val("f-goal"), "Elu siis": val("f-life"), "Kõige raskem": val("f-pain"), "Rahul vormiga": +$("r-now").value, "Soov 90p": +$("r-want").value,
+    "Mis saab võimalikuks": val("f-gap"), "Trenne nädalas": +$("r-time").value, "Energia": +$("r-energy").value, "Takistus": val("f-drain"), "Uni (h)": +$("r-people").value,
     "Vahendid": MONEY[money], "Tahe": +$("r-will").value, "Valmis": val("f-ready"), hp_k7: val("r-hp") };
   if (!d.hp_k7) { try { fetch(ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain" }, body: JSON.stringify(d) }); } catch (x) {} }
-  const rows = [["Fookus", d["Fookus"]], ["Siht", d["Siht"], "goal"], ["Elu siis", d["Elu siis"]], ["Kõige raskem praegu", d["Kõige raskem"]],
-    ["Distants", d["Distants praegu"] + " → " + d["Distants soov"] + " (" + Math.max(0, d["Distants soov"] - d["Distants praegu"]) + " sammu)"], ["Mis saab võimalikuks", d["Mis saab võimalikuks"]],
-    ["Vaba aeg päevas", hrs(d["Vaba aeg (h)"])], ["Energia", d["Energia"] + "/10 · " + d["Mis sööb energiat"]], ["Lähedaste tugi", d["Lähedaste tugi"] + "/10"], ["Vahendid", d["Vahendid"]],
+  const rows = [["Eesmärk", d["Eesmärk"]], ["Keha", d["Keha"]], ["Siht 90 päeva pärast", d["Siht 90p"], "goal"], ["Elu siis", d["Elu siis"]], ["Kõige raskem trennis ja toidus", d["Kõige raskem"]],
+    ["Vormiga rahul", d["Rahul vormiga"] + " → " + d["Soov 90p"] + " (" + Math.max(0, d["Soov 90p"] - d["Rahul vormiga"]) + " sammu)"], ["Mis saab võimalikuks", d["Mis saab võimalikuks"]],
+    ["Trenne nädalas", hrs(d["Trenne nädalas"])], ["Energia", d["Energia"] + "/10"], ["Takistus", d["Takistus"]], ["Uni", d["Uni (h)"] + " h"], ["Vahendid", d["Vahendid"]],
     ["Tahe", d["Tahe"] + "/10"], ["Valmis", d["Valmis"]]];
   $("sum").innerHTML = rows.map(r => '<div><small>' + r[0] + '</small><span></span></div>').join("");
   [...$("sum").querySelectorAll("span")].forEach((el, k) => el.textContent = rows[k][1]);
-  $("s-area").textContent = d["Fookus"]; $("s-goal").textContent = d["Siht"];
-  $("s-dist").textContent = d["Distants praegu"] + " → " + d["Distants soov"]; $("s-en").textContent = d["Energia"] + "/10"; $("s-will").textContent = d["Tahe"] + "/10";
+  $("s-area").textContent = d["Eesmärk"]; $("s-goal").textContent = d["Siht 90p"];
+  $("s-dist").textContent = d["Rahul vormiga"] + " → " + d["Soov 90p"]; $("s-en").textContent = d["Energia"] + "/10"; $("s-will").textContent = d["Tahe"] + "/10";
   $("more").onclick = () => { const h = $("sum").hidden; $("sum").hidden = !h; $("more").textContent = h ? "Peida ▴" : "Kõik vastused ▾"; };
   setTimeout(() => show(5), 300);
 };
