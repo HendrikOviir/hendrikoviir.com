@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="et" data-theme="dark"><head>
+<!-- Meta Pixel (same dataset as Kompass/AI/Keha). Silent on localhost. Event: CompleteRegistration -->
+<script>
+(function(){var h=location.hostname;
+if(h==="localhost"||h==="127.0.0.1"||/\.local$/.test(h)||/^192\.168\./.test(h)){window.fbq=function(){}}
+else{!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','587447591933718')}
+window.px=function(){try{fbq.apply(null,arguments)}catch(e){}};px('track','PageView')})();
+</script>
+<meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#111217">
+<title>Sinu tööleht · Meeste tervise kuu webinar</title>
+<link rel="stylesheet" href="joux.css?v=12">
+<style>
+main{max-width:560px;margin:0 auto;padding:22px 16px 40px}
+.kick{display:block;text-align:center}
+h1{text-align:center;font-size:clamp(26px,6.5vw,36px);margin-bottom:10px}
+.lead{text-align:center;color:var(--mut);margin:0 auto 18px;max-width:30em;font-size:16px;text-wrap:balance}
+.lead:empty{display:none}
+.stp{position:relative;display:flex;justify-content:space-between;margin:6px 4px 24px}
+.stp:before{content:"";position:absolute;left:16px;right:16px;top:14px;height:2px;background:var(--line)}
+.stp .fill{position:absolute;left:16px;top:14px;height:2px;background:var(--acc);transition:width .4s ease;width:0}
+.st{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;width:60px}
+.st i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:800 13px/1 inherit;font-style:normal;background:var(--bg2);border:2px solid var(--line);color:var(--mut)}
+.st b{font-size:11px;font-weight:600;color:var(--mut);white-space:nowrap}
+.st.done i{background:var(--acc);border-color:var(--acc);color:var(--cta)}
+.st.now i{border-color:var(--acc);color:var(--ink)}
+.st.now b{color:var(--ink)}
+.step{display:none}.step.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+label.q{display:block;font-weight:700;font-size:17px;line-height:1.35;margin:20px 0 8px}
+label.q:first-child{margin-top:0}
+.hint{display:block;font-weight:400;font-size:14px;color:var(--mut);margin-top:3px}
+textarea{width:100%;min-height:56px;resize:vertical;padding:13px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:16px}
+textarea:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.meter{margin-top:18px}.meter .top{display:flex;justify-content:space-between;align-items:baseline;font-weight:700}
+.meter b{color:var(--acc);font-size:22px;font-weight:800}
+.meter input[type=range]{width:100%;height:auto;min-height:32px;margin:6px 0 2px;accent-color:var(--acc)}
+.ends{display:flex;justify-content:space-between;font-size:13px;color:var(--mut)}
+.gapn{text-align:center;margin:16px 0 4px}.gapn b{display:block;font-size:48px;line-height:1;font-weight:800;color:var(--acc)}.gapn span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.areas,.opts{display:grid;gap:10px}.areas{grid-template-columns:1fr 1fr}
+.areas button,.opts button{all:unset;box-sizing:border-box;cursor:pointer;padding:16px 14px;min-height:56px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);font-weight:700;text-align:center;display:flex;align-items:center;justify-content:center}
+.opts button{justify-content:flex-start;text-align:left}
+.areas button:focus-visible,.opts button:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.areas button.on,.opts button.on{border-color:var(--acc);background:rgba(239,35,60,.12)}
+.nav{display:flex;gap:10px;margin-top:24px}
+.nav .btn{flex:1}.nav .btn.back{flex:0 0 64px;padding:14px 0}
+.btn:disabled{opacity:.4;cursor:default}
+.hp{position:absolute;left:-9999px}
+.done{text-align:center}
+.sgoal{text-align:left;padding:14px 16px;border-radius:14px;border:1.5px solid var(--acc);background:rgba(239,35,60,.08)}
+.sgoal small,.sum small{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:3px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.stats div{padding:12px 6px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.stats b{display:block;font-size:20px;font-weight:800}.stats small{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.more{all:unset;cursor:pointer;display:block;margin:16px auto 0;color:var(--mut);font-weight:600;font-size:14px;min-height:44px}
+.sum{text-align:left;display:grid;gap:8px}.sum[hidden]{display:none}.sum div{padding:12px 14px;border-radius:14px;background:var(--bg);border:1px solid var(--line);font-size:15px}
+.err{color:var(--acc);font-size:14px;min-height:1em;margin-top:10px;text-align:center}
+</style></head><body>
+<main>
+  <span class="kick">Meeste tervise kuu webinar</span>
+  <div class="stp" id="stp"><div class="fill" id="fill"></div>
+    <div class="st"><i>1</i><b>Fookus</b></div><div class="st"><i>2</i><b>Siht</b></div><div class="st"><i>3</i><b>Distants</b></div><div class="st"><i>4</i><b>Takistused</b></div><div class="st"><i>5</i><b>Tahe</b></div>
+  </div>
+  <h1 id="h"></h1>
+  <p class="lead" id="lead"></p>
+  <div class="card">
+    <section class="step on">
+      <div class="areas" id="c-area"><button data-v="keha">Keha</button><button data-v="vaim">Vaim</button><button data-v="suhted">Suhted</button><button data-v="raha">Raha ja karjäär</button></div>
+    </section>
+
+    <section class="step">
+      <label class="q" for="f-goal">Kuhu soovid jõuda?<span class="hint">Kirjuta nii, nagu see oleks juba tõsi.</span></label><textarea id="f-goal" maxlength="300"></textarea>
+      <label class="q" for="f-life">Mismoodi Su elu siis muutuks?</label><textarea id="f-life" maxlength="300"></textarea>
+      <label class="q" for="f-pain">Mis on selles praegu kõige raskem?</label><textarea id="f-pain" maxlength="300"></textarea>
+      <div class="nav"><button class="btn ghost back" data-back>←</button><button class="btn" data-next>Edasi</button></div>
+    </section>
+
+    <section class="step">
+      <div class="meter"><div class="top"><label for="r-now">Kus oled täna?</label><b id="r-now-v">4</b></div><input type="range" id="r-now" min="1" max="10" value="4"><div class="ends"><span>kaugel</span><span>kohal</span></div></div>
+      <div class="meter"><div class="top"><label for="r-want">Kus tahaksid olla?</label><b id="r-want-v">9</b></div><input type="range" id="r-want" min="1" max="10" value="9"><div class="ends"><span>kaugel</span><span>kohal</span></div></div>
+      <div class="gapn"><b id="gap-n">5</b><span>sammu vahet</span></div>
+      <label class="q" for="f-gap">Mis saab võimalikuks, kui Sa selle valid?<span class="hint">Millised võimalused avanevad, kui Sa selle ära teed?</span></label><textarea id="f-gap" maxlength="300"></textarea>
+      <div class="nav"><button class="btn ghost back" data-back>←</button><button class="btn" data-next>Edasi</button></div>
+    </section>
+
+    <section class="step">
+      <div class="meter" style="margin-top:0"><div class="top"><label for="r-time">Vaba aega iseendale päevas</label><b id="r-time-v">2 tundi</b></div><input type="range" id="r-time" min="0" max="12" value="2"><div class="ends"><span>alla 1 tunni</span><span>12 tundi</span></div></div>
+      <div class="meter"><div class="top"><label for="r-energy">Energia tavalisel päeval</label><b id="r-energy-v">5</b></div><input type="range" id="r-energy" min="1" max="10" value="5"><div class="ends"><span>vähe</span><span>palju</span></div></div>
+      <label class="q" for="f-drain">Mis sööb Su energiat kõige rohkem?</label><textarea id="f-drain" maxlength="300"></textarea>
+      <div class="meter"><div class="top"><label for="r-people">Kui palju lähedased Sind toetavad?</label><b id="r-people-v">5</b></div><input type="range" id="r-people" min="1" max="10" value="5"><div class="ends"><span>üldse mitte</span><span>täielikult</span></div></div>
+      <label class="q">Kas Sul on vabu vahendeid, mida soovi korral iseendasse investeerida?</label>
+      <div class="opts" id="c-money"><button data-v="jah">Jah, vahendid on olemas</button><button data-v="umber">On, kuid piiratud hulgal</button><button data-v="ei">Praegu mitte</button></div>
+      <div class="nav"><button class="btn ghost back" data-back>←</button><button class="btn" data-next>Edasi</button></div>
+    </section>
+
+    <section class="step">
+      <div class="meter" style="margin-top:0"><div class="top"><label for="r-will">Kui väga Sa seda päriselt tahad?</label><b id="r-will-v">7</b></div><input type="range" id="r-will" min="1" max="10" value="7"><div class="ends"><span>proovin</span><span>teen ära</span></div></div>
+      <label class="q" for="f-ready">Mida Sa tunned? Millal Sa selle valid?<span class="hint">Millal oled selleks valmis?</span></label><textarea id="f-ready" maxlength="300"></textarea>
+      <label class="q" for="f-name">Eesnimi</label><input type="text" id="f-name" maxlength="60" autocomplete="given-name">
+      <label class="q" for="f-email">E-post</label><input type="email" id="f-email" maxlength="120" autocomplete="email">
+      <label class="q" for="f-phone">Telefon<span class="hint">Soovi korral</span></label><input type="tel" id="f-phone" maxlength="30" autocomplete="tel">
+      <input type="text" class="hp" id="r-hp" name="hp_k7" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="err" id="err" role="alert"></p>
+      <div class="nav"><button class="btn ghost back" data-back>←</button><button class="btn" id="send" disabled>Kinnitan</button></div>
+    </section>
+
+    <section class="step done" id="s-done">
+      <div class="sgoal"><small id="s-area"></small><span id="s-goal"></span></div>
+      <div class="stats"><div><b id="s-dist"></b><small>Distants</small></div><div><b id="s-en"></b><small>Energia</small></div><div><b id="s-will"></b><small>Tahe</small></div></div>
+      <p class="fine" style="margin-top:16px">Aitäh. Näeme reedel 27.11 kell 19:00 Zoomis.</p>
+      <button class="more" id="more" type="button">Kõik vastused ▾</button>
+      <div class="sum" id="sum" hidden></div>
+    </section>
+  </div>
+</main>
+<footer class="ft"><span class="fl"><a href="tingimused.html">Tingimused</a><span>·</span><a href="mailto:hendrik@hendrikoviir.com">Kontakt</a></span></footer>
+<script src="joux.js?v=8"></script>
+<script>
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbw5D-Vmuu6p7GuTzK2Da1_aQB_HC3YRmlif4WFjPngDvDw9AcxFDUwle_s9_FN0TtEo/exec";
+const $ = id => document.getElementById(id), val = id => $(id).value.trim();
+const emailOk = s => /^[^\s@]{1,64}@[^\s@]{1,190}\.[a-z]{2,24}$/i.test(s);
+const Q = new URLSearchParams(location.search);
+const HEAD = [
+  ["Sinu fookus", "Vali valdkond, kus soovid praegu kõige rohkem edasi liikuda."],
+  ["Sinu siht", "Kuhu Sa liigud ja miks see Sulle oluline on?"],
+  ["Distants Sinu sihini", "Kui kaugel see täna on ja mida see vahe Sult võtab?"],
+  ["Mis Sind tagasi hoiab", "Aeg, energia, inimesed ja raha. Nähtav takistus on ületatav."],
+  ["Sinu tahe", "See on võimalik, kui see on Sulle tõeliselt oluline."],
+  ["Kokkuvõte", ""]];
+let area = "", money = "", cur = 0;
+const steps = [...document.querySelectorAll(".step")], dots = [...document.querySelectorAll(".st")];
+const need = [() => area, () => val("f-goal") && val("f-life") && val("f-pain"), () => val("f-gap"), () => money && val("f-drain"), () => val("f-ready") && val("f-name") && emailOk(val("f-email"))];
+function refresh(){ steps.forEach((s, k) => { const b = s.querySelector("[data-next]"); if (b) b.disabled = !need[k](); }); $("send").disabled = !need[4](); }
+function show(i){ cur = i; steps.forEach((s, k) => s.classList.toggle("on", k === i));
+  dots.forEach((d, k) => { d.classList.toggle("done", k < i); d.classList.toggle("now", k === i); d.querySelector("i").textContent = k < i ? "✓" : k + 1; });
+  $("fill").style.width = "calc((100% - 32px) * " + Math.min(i, 4) / 4 + ")";
+  $("h").textContent = HEAD[i][0]; $("lead").textContent = HEAD[i][1]; refresh(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+function chooser(id, set){ const box = $(id); box.querySelectorAll("button").forEach(b => b.onclick = () => { box.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); set(b.dataset.v); refresh(); }); }
+chooser("c-area", v => { area = v; setTimeout(() => { if (cur === 0) show(1); }, 300); }); chooser("c-money", v => money = v);
+const gap = () => { $("gap-n").textContent = Math.max(0, $("r-want").value - $("r-now").value); };
+["now","want","energy","people","will"].forEach(k => { const r = $("r-" + k); r.oninput = () => { $("r-" + k + "-v").textContent = r.value; gap(); }; });
+const hrs = n => n == 0 ? "Alla 1 tunni" : n == 1 ? "1 tund" : n + " tundi"; $("r-time").oninput = () => $("r-time-v").textContent = hrs(+$("r-time").value);
+document.querySelectorAll("[data-next]").forEach(b => b.onclick = () => show(cur + 1));
+document.querySelectorAll("[data-back]").forEach(b => b.onclick = () => show(cur - 1));
+document.addEventListener("input", e => { if (e.target.tagName === "TEXTAREA") { e.target.style.height = "auto"; e.target.style.height = e.target.scrollHeight + 2 + "px"; } refresh(); });
+(function(){ const e = Q.get("e"); if (e && emailOk(e)) $("f-email").value = e; })();
+const AREA = { keha: "Keha", vaim: "Vaim", suhted: "Suhted", raha: "Raha ja karjäär" }, MONEY = { jah: "Jah, vahendid on olemas", umber: "On, kuid piiratud hulgal", ei: "Praegu mitte" };
+$("send").onclick = () => {
+  if ($("send").disabled || $("send").dataset.sent) return; $("send").dataset.sent = "1"; $("send").disabled = true;
+  const src = Q.get("src") || Q.get("utm_source") || "email";
+  const d = { Nimi: val("f-name"), Email: val("f-email"), Telefon: val("f-phone"), Allikas: "meeste-webinar-27-11 · tooleht · " + src, Valik: "tooleht mehed",
+    "Fookus": AREA[area], "Siht": val("f-goal"), "Elu siis": val("f-life"), "Kõige raskem": val("f-pain"), "Distants praegu": +$("r-now").value, "Distants soov": +$("r-want").value,
+    "Mis saab võimalikuks": val("f-gap"), "Vaba aeg (h)": +$("r-time").value, "Energia": +$("r-energy").value, "Mis sööb energiat": val("f-drain"), "Lähedaste tugi": +$("r-people").value,
+    "Vahendid": MONEY[money], "Tahe": +$("r-will").value, "Valmis": val("f-ready"), hp_k7: val("r-hp") };
+  if (!d.hp_k7) { try { fetch(ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain" }, body: JSON.stringify(d) }); } catch (x) {} }
+  const rows = [["Fookus", d["Fookus"]], ["Siht", d["Siht"], "goal"], ["Elu siis", d["Elu siis"]], ["Kõige raskem praegu", d["Kõige raskem"]],
+    ["Distants", d["Distants praegu"] + " → " + d["Distants soov"] + " (" + Math.max(0, d["Distants soov"] - d["Distants praegu"]) + " sammu)"], ["Mis saab võimalikuks", d["Mis saab võimalikuks"]],
+    ["Vaba aeg päevas", hrs(d["Vaba aeg (h)"])], ["Energia", d["Energia"] + "/10 · " + d["Mis sööb energiat"]], ["Lähedaste tugi", d["Lähedaste tugi"] + "/10"], ["Vahendid", d["Vahendid"]],
+    ["Tahe", d["Tahe"] + "/10"], ["Valmis", d["Valmis"]]];
+  $("sum").innerHTML = rows.map(r => '<div><small>' + r[0] + '</small><span></span></div>').join("");
+  [...$("sum").querySelectorAll("span")].forEach((el, k) => el.textContent = rows[k][1]);
+  $("s-area").textContent = d["Fookus"]; $("s-goal").textContent = d["Siht"];
+  $("s-dist").textContent = d["Distants praegu"] + " → " + d["Distants soov"]; $("s-en").textContent = d["Energia"] + "/10"; $("s-will").textContent = d["Tahe"] + "/10";
+  $("more").onclick = () => { const h = $("sum").hidden; $("sum").hidden = !h; $("more").textContent = h ? "Peida ▴" : "Kõik vastused ▾"; };
+  setTimeout(() => show(5), 300);
+};
+show(0);
+</script></body></html>
